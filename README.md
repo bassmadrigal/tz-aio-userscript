@@ -11,8 +11,8 @@ _This project is mainly maintained on [github](https://github.com/elundmark/tz-a
 1. Install [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) or [Scriptish](https://addons.mozilla.org/en-US/firefox/addon/scriptish/)**(*)** for Firefox, [Tampermonkey](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo) for Google Chrome / Chromium, or [Violent Monkey](https://addons.opera.com/en/extensions/details/violent-monkey/) for Opera.
 2. Install the userscript itself from any of the following repositories:
 	* **[openuserjs.org](https://openuserjs.org/?q=torrentz)**
-	* **[greasyfork.org](https://greasyfork.org/scripts/search?q=torrentz)**
-	* **[monkeyguts.com](https://monkeyguts.com/code.php?id=194)** _supplies secure updates_
+	* **[greasyfork.org](https://greasyfork.org/en/scripts/search?q=torrentz)**
+	* **[monkeyguts.com](https://monkeyguts.com/index.php?search=torrentz)** _supplies secure updates_
 3. Disable _Require Secure Updates_ in your userscript engine to enable updates, if not installed through [monkeyguts.com](https://monkeyguts.com/code.php?id=194). However, doing this is less secure, so be careful.
 
 **(*)** Make sure you use version `0.1.12` or higher. Download the latest version [here](https://addons.mozilla.org/en-US/firefox/addon/scriptish/versions/).
@@ -24,22 +24,33 @@ _Tested on Firefox 32+ (GreaseMonkey/Scriptish) Google Chrome 37+ with Tampermon
 ## Features
 
 * **Default trackerlist**  _Customizable_ - Magically sorted trackers, that apply to all magnet-links.
-* **Custom Search Engines**  _Customizable_ - Appears automatically underneith the search-box, and any selected text in the title of individual torrents. For added security the referrer is removed using `data:text/html...` links.
-* **Custom CSS Editor** _Customizable_ - Added by demand, edit away!
-* **Force HTTPS**  _Customizable_ - Off by default, but forces SSL (`https://`) if enabled.
-* **TV Episode Links**  Helps you search for next/prev episode/season, click the links in the filter-bar or use `SHIFT+[arrowkeys]` when available by searching for the common patters _sNNeNN_ or _2013 01 01_.
-* **Ad removal**  _Customizable_ - Wouldn't be a UserScript without this. Also gets rid of the "click popup ads". As new ads are added, this script will be updated.
+	- You can also turn trackers off completely using the **Use trackers** toggle.
 * **Direct .torrent links**  Applies to all avaliable sites listed on each 'single page'.
+* **Magnet links for Everything**  Self-explanatory.
+* **Custom Search Engines**  _Customizable_ - Appears automatically underneith the search-box, and any selected text in the title of individual torrents. For added security the referrer is removed using `data:text/html...` links.
+	- You can also turn this off using the **Search tabs** toggle.
+* **Custom CSS Editor** _Customizable_ - Added by demand, edit away!
+	- You can also turn this off using the **Custom CSS** toggle.
+* **Ad removal**  _On/Off_ - Wouldn't be a UserScript without this. Also gets rid of the "click popup ads". As new ads are added, this script will be updated.
+* **Force HTTPS**  _On/Off_ - Off by default, but forces SSL (`https://`) if enabled.
+* **TV Episode Links**  Helps you search for next/prev episode/season, click the links in the filter-bar or use `SHIFT+[arrowkeys]` when available by searching for the common patters _sNNeNN_ or _2013 01 01_.
+* **Group results by category**  _On/Off_ - Off by default, this feature will sort all results by category, might not suit everyone, but it helps it you're looking through lots of pages.
+* **Highlight markers**  _Customizable_  Shows a new menu above the main search results that allows you to highlight common words in all the results, and makes it easier to find exactly what you're looking for. You can add markers for anything, even using [Regular Expressions](http://www.regular-expressions.info/javascript.html), and also specify the color of them individually.
+	- You can also turn this feature off completely using the **Highlight markers** toggle.
 * **Stats-bar**  Get all the important info right away, like seed-ratio, a Copy trackerlist button, a Magnet-link, links to the comments and the files, and the total amout of peers.
 * **Copy Trackers Button**  Copies all trackers to your clipboard (if your engine doesn't support `GM_setClipboard` it shows them instead).
-* **Ajaxed sorting**  _Customizable_ - Applies to all search results, uses `history.pushState`.
+* **Ajaxed sorting**  _On/Off_ - Applies to all search results, uses `history.pushState`.
+	- You can also turn this off using the **Ajaxed sorting** toggle.
 * **Exclude filter**  _Customizable_ - Remove unwanted torrens by keywords or `RegExp`.
+	- You can also turn this off using the **Exclude filter** toggle.
 * **Colorful results**  _Customizable_ - Uses a pretty solid `RegExp` pattern to figure out what is what and adds a background color, making it easier to scan every page.
 	* Colors can be changed w/ the built in Color Picker.
 	* All torrents in all search-results have their own magnet-link that includes your custom trackers.
 	* Old/dead-ish torrents are dimmed out to indicate a "dead-ish" torrent.
 	* If you use the exclude-filter, the number of excluded torrents are noted at the bottom of the list.
+		- You can also turn this off using the **Colorize search results** toggle.
 * **Comment links**  _Customizable_ - Changes all valid un-anchored links inside comments to links.
+	- You can also turn this off using the **Linkify comments** toggle.
 * **Exporter + Importer** - Saves your settings and so you can restore them more easily.
 * **Smart keyboard shortcuts**
 	* `C` - Copy all the trackers
@@ -76,16 +87,18 @@ _All these settings are accessed by clicking 'TzAio' at the top of each page, an
 * [http(s)://torrents.de/*](https://torrents.de/)
 * [http(s)://tz.ai/*](https://tz.ai/)
 * [http://torrentz-proxy.com/*](http://torrentz-proxy.com/)
+* [http(s)://torrentz.filesoup.com/*](http://torrentz.filesoup.com/)
 
-__Note that not all of these work, some redirect to _torrentz.eu_ and some to _torrentz-proxy.com_, but it doesn't hur to have them all apply anyways.__
+__Note that not all of these work, some redirect to _torrentz.eu_ and some to _torrentz-proxy.com_, but it doesn't hurt to have them all apply still.__
 
 ## Known Issues
 
-* Some have had it stop working this summer, due to (**I think**) the fact that GreaseMonkey has changed it's ways. Follow the instructions **[here](https://github.com/elundmark/tz-aio-userscript/issues/5)** (Issue[#5](https://github.com/elundmark/tz-aio-userscript/issues/5)) and you should be able to spring it back to life. Please leave a comment if you had any luck - **and keep an eye on that page if you didn't have any luck, a better and final solution should be up pretty soon**.
+* Upgrading from <= `v2.7.12` to >= `v2.8.x` will turn off some of your settings, so you need to re-enable them in the settings after upgrading.
+* Some have had it stop working (summer 2014), due to (**I think**) the fact that GreaseMonkey has changed it's ways. Follow the instructions **[here](https://github.com/elundmark/tz-aio-userscript/issues/5)** (Issue[#5](https://github.com/elundmark/tz-aio-userscript/issues/5)) and you should be able to spring it back to life. Please leave a comment if you had any luck - **and keep an eye on that page if you didn't have any luck, a better and final solution should be up pretty soon**.
 
 ## Using a proxy?
 
-If you can't use **torrentz-proxy.com**, you can try installing [this special version](https://github.com/elundmark/tz-aio-userscript/raw/master/tz-aio.proxy-fix.user.js), which runs on _every_ page, thus making it work again. But It's not *100%* guarateed, it depends on the proxy provider, and seeing there's like 100.000.000 of them I'm not gonna even try.
+If you can't use **torrentz-proxy.com** or **torrentz.filesoup.com**, you can also try installing [this special version](https://github.com/elundmark/tz-aio-userscript/raw/master/tz-aio.proxy-fix.user.js), which runs on _every_ page, thus making it work again. But It's not *100%* guarateed, it depends on the proxy provider, and seeing there's like 100.000.000 of them I'm not gonna even try.
 
 ## Help me, to help us
 
@@ -109,10 +122,6 @@ The following resources are fetched externally by this userscript.
 * [Spectrum Colorpicker](https://github.com/bgrins/spectrum) v1.3.3. Copyright (c) 2014 [Brian Grinstead](http://briangrinstead.com). [License](https://github.com/bgrins/spectrum/blob/master/LICENSE).
 * [jQuery replaceText](http://github.com/cowboy/jquery-replacetext/), Copyright (c) 2009 "Cowboy" Ben Alman. Version: 1.1, Last updated: 11/21/2009* [Dual licensed](http://benalman.com/about/license/) under the MIT and GPL licenses. [Project Home](http://benalman.com/projects/jquery-replacetext-plugin/).
 * [Underscore.js](http://underscorejs.org/) 1.6.0, (c) 2009-2014 Jeremy Ashkenas, DocumentCloud Inc. Freely distributable under the [MIT](http://www.opensource.org/licenses/mit-license.php) license.
-
-## TODO's
-
-Nothing planned.
 
 ## Legality
 

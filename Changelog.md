@@ -1,5 +1,26 @@
 # Changelog
 
+### [v2.8.0](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.8.0) (2014-12-09)
+
+**Important!** Due to new features, upgrading from <= `v2.7.12` to >= `v2.8.x` will disable some of your enabled features, simply edit the settings to turn them on again.
+
+* Added highlight buttons, all buttons can be adjusted in the settings, or turned off completely if you don't want them.
+* Added category grouping ([feature request](https://github.com/elundmark/tz-aio-userscript/issues/9)), open the settings panel to enable or disable. Applies to all results.
+* Added option to disable adding any trackers to any magnet-links.
+* Overhaul of the settings; each settings that depends on user input are divided from pure on/off toggles, and they can all be disabled on the fly, instead of before when you had to delete all the text to disable it.
+* Search engines and markers textarea inputs now allow spaces.
+* Changed search box event handler to `propertychange input`.
+* Added, besides `tabindex=1`, `accesskey=s` to the search box.
+* Changed CSS for search tabs, now it doesn't require it's own space.
+* Better (fixed) rss link urls.
+* Improved CSS for inactive torrents; looks a lot better.
+* Slight adjustment of TV color (too dark before imo).
+* Improved (fixed) ad removal for search pages.
+* Modified html structure in the settings form.
+* Added youtube as a default search tab.
+* Added kickass.so direct torrent link.
+* Added demonoid.pw direct torrent link.
+
 ### [v2.7.12](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.7.12) (2014-11-13)
 
 * Added yts.re direct torrent link.

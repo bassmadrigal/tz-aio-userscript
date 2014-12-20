@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name          Torrentz All-in-One
 // @description   Does everything you wish Torrentz.eu could do!
-// @version       2.8.0
-// @date          2014-12-09
+// @version       2.8.1
+// @date          2014-12-20
 // @author        elundmark
 // @contact       mail@elundmark.se
 // @license       MIT; http://opensource.org/licenses/MIT
@@ -12,11 +12,11 @@
 // @updateURL     http://elundmark.se/_files/js/tz-aio/tz-aio.meta.js
 // @downloadURL   http://elundmark.se/_files/js/tz-aio/tz-aio.user.js
 // @supportURL    https://github.com/elundmark/tz-aio-userscript/issues
-// @require       https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js
+// @require       https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
 // @require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js
 // @require       https://cdn.jsdelivr.net/jquery.spectrum/1.3.3/spectrum.js
 // @resource css1 https://cdn.jsdelivr.net/jquery.spectrum/1.3.3/spectrum.css
-// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-8-0-0
+// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-8-1-0
 // @include       http*://torrentz.eu/*
 // @include       http*://www.torrentz.eu/*
 // @include       http*://torrentz.ph/*

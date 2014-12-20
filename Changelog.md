@@ -1,5 +1,12 @@
 # Changelog
 
+### [v2.8.1](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.8.1) (2014-12-20)
+
+* Removed PirateBay references, R.I.P.
+* Added torrentproject.se direct torrent link.
+* Bugfix: fixed issue [#11](https://github.com/elundmark/tz-aio-userscript/issues/11).
+* Updated jQuery to `v2.1.3`.
+
 ### [v2.8.0](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.8.0) (2014-12-09)
 
 **Important!** Due to new features, upgrading from <= `v2.7.12` to >= `v2.8.x` will disable some of your enabled features, simply edit the settings to turn them on again.

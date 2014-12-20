@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name          Torrentz All-in-One
 // @description   Does everything you wish Torrentz.eu could do!
-// @version       2.8.0
-// @date          2014-12-09
+// @version       2.8.1
+// @date          2014-12-20
 // @author        elundmark
 // @contact       mail@elundmark.se
 // @license       MIT; http://opensource.org/licenses/MIT
@@ -39,11 +39,11 @@
 // @exclude       /^https?://[^/]+/announcelist_.*/
 // @exclude       /^https?://[^/]+/report_.*/
 // @exclude       /^https?://[^/]+/comment_.*/
-// @require       https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js
+// @require       https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
 // @require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js
 // @require       https://cdn.jsdelivr.net/jquery.spectrum/1.3.3/spectrum.js
 // @resource css1 https://cdn.jsdelivr.net/jquery.spectrum/1.3.3/spectrum.css
-// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-8-0-0
+// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-8-1-0
 // @icon          data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABNVBMVEUAAAAlSm8lSnAlS3AmS3AmTHImTHMmTXQnTnYnT3coTHEoUXkpUnsqVH4qVYArT3MrV4IsWYUtWoguXIovXo0vX44wYJAwYZIxVHcxYpQxY5UyZJYyZZcyZZgzZpk0Z5k1Z5k2aJo3WXs3aZo8bJ09Xn8+bp5CcaBFZYRHdaJJdqNNeaVPbYtQe6dSfahVf6lYdJFbhKxchK1hiK9iibBjfZhnjLJvh6Bylbhzlrh6m7x8kqh8nb2KnrGNqcWRrMeYqbuYssuas8ymtcSovdOqv9SvwtawxNezv8y2yNq5ytu+ydTD0eDJ0tvJ1uPP2ubT2uLZ4uvc4efe5u7f5+7i6fDl6e3p7vPq7fHq7/Ts8PXu8vbw8vTx9Pf19vj2+Pr4+fr4+fv6+/z8/Pz8/P39/f3///871JlNAAAAAXRSTlMAQObYZgAAAXFJREFUeNrt20dPw0AQBeBs6DX0niGhhN57Db333kJn//9PYOdgCQlYEEJ5Ab13mhnb8nfwYSRrQyGBxr3fQiMEEEAAAW8BkrZ8DJA0hgACCCCAAAIIIIAAAgjwAuy346cvBRdRgC0wIHYFBsxaLGAghQWMnlskoG/12f4c4H1CvIknuoYn59dPrAYBCO4igAAA4H0IIIAAAggggAACCPh3AG+MIQALWDalqI9w/NHNdguLoiBAf8qNzlryGgQD6Dh1k9verBrBAFr3dTJhKgUE2NTBgikTEGBR++3s4igIMK3tUV1+o2AAIw+uu+nMqRUMoOfaNU9j4SrBABLH2syZcsEA4ntab5gSAQHWtDyIFDSBAEmtLtpz6wUDmHpxxf1guFowgKE7LWZMhWAA3ZfBCoABtB3aYAWAAJp37OcrgNgv8guAFRusAACAbykl4I8A+PecAAIIIIAAAggggAACMhQAEPC0HQEEEJBJAPjx/1f83wbVqAm3rAAAAABJRU5ErkJggg==
 // @grant         GM_info
 // @grant         GM_addStyle
@@ -181,9 +181,7 @@ var proxyFix = false;
 				"itunes|http://www.apple.com/search/?q=%s&section=ipoditunes",
 				"amazon|http://www.amazon.com/s/?field-keywords=%s",
 				"wikipedia|http://en.wikipedia.org/w/index.php?search=%s",
-				// Ooooh tpb is scAAry
-				(unescape("%74%70%62%7C%68%74%74%70%73%3A%2F%2F%74%68%65%70%69%72%61%74%65%62%61"+
-					"%79%2E%73%65%2F%73%65%61%72%63%68%2F%25%73%2F%30%2F%37%2F%30")),
+				"isohunt|http://isohunt.to/torrents/?ihq=%s",
 				"youtube|https://www.youtube.com/results?search_query=%s",
 				"google|https://www.google.com/search?q=%s"
 			];
@@ -524,7 +522,7 @@ var proxyFix = false;
 				// take.fm/movies/999/releases/9999/torrent/download?file=Title+of+torrent.torrent
 				directHref = slashSplit && slashSplit.length >= 7 ? "http://take.fm/movies/"+slashSplit[4]+
 					"/releases/"+slashSplit[6]+"/torrent/download?file="+titleEnc+".torrent" : null;
-			} else if (is("thepiratebay.sx/torrent/")
+			/*} else if (is("thepiratebay.sx/torrent/")
 				|| is("thepiratebay.ac/torrent/")
 				|| is("thepiratebay.pe/torrent/")
 				|| is("thepiratebay.org/torrent/")
@@ -542,7 +540,7 @@ var proxyFix = false;
 				// 2014-04-18 remove fastpiratebay.eu proxy links and redo slashSplit
 				slashSplit = href.replace("fastpiratebay.eu/","").split("/");
 				directHref = slashSplit && slashSplit.length >= 5 ? "http://torrents."+slashSplit[2]+
-					"/"+slashSplit[4]+"/"+titleEnc+"."+slashSplit[4]+".TPB.torrent" : null;
+					"/"+slashSplit[4]+"/"+titleEnc+"."+slashSplit[4]+".TPB.torrent" : null;*/
 			} else if (is("yts.re/movie/")) {
 				// last checked 2014-11-13
 				directHref = "https://yts.re/download/start/"+HASH+".torrent";
@@ -576,6 +574,11 @@ var proxyFix = false;
 				// phrike.mx/d.php?id=2544567
 				directHref = href.match(/files\/details\/([0-9]+)/);
 				directHref = directHref ? "http://phrike.mx/d.php?id="+directHref[1] : null;
+			} else if (is("torrentproject.se")) {
+				// last checked 2014-12-19
+				// torrentproject.se/BAE62A9932EC69BC6687A6D399CCB9D89D00D455/
+				// torrentproject.se/torrent/BAE62A9932EC69BC6687A6D399CCB9D89D00D455.torrent
+				directHref = "torrentproject.se/torrent/"+HASH+".torrent";
 			} else if (is("torrage.com/torrent")) {
 				// torrage.com/torrent/BAE62A9932EC69BC6687A6D399CCB9D89D00D455.torrent
 				directHref = href;
@@ -2361,7 +2364,7 @@ var proxyFix = false;
 					commentDiv.find(" > h2:eq(0)").replaceText(/\(\d+\)/, "(0)");
 				}
 				if (typeof callback === "function") {
-					return callback(tz.usc.useTrackers ? stats.allTrackers : []);
+					return callback(tz.usc.useTrackers ? stats.allTrackers : stats.wantedTrackers);
 				}
 			});
 		});
@@ -3132,6 +3135,7 @@ var proxyFix = false;
 			return makeStatsBar(function (trackers) {
 				setupSelectToSearch();
 				els.$downloadDiv.find("a").not(els.$allMagnetLinks).each(doDirectTorrentLink);
+				// Fixed 2014-12-20 11:09 - use "wantedTrackers"
 				setupCopyTextArea(trackers);
 				linkifyCommentLinks();
 				if (typeof callback === "function") {

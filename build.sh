@@ -30,7 +30,7 @@ if [[ "$PWD" =~ TzAiOv2$ ]] && [[ -x "$PASSM" ]]; then
 		read -p "Is '""$gitcommitmsg""' correct? (y/n): " CONT
 		if [[ $? -eq 0 ]] && [[ "$CONT" == "y" || ! $CONT || "$CONT" = "" ]] ; then
 			echo "\$ git add . ; git commit -am ""$gitcommitmsg""; git push origin master"
-			git add .
+			git add --all .
 			git commit -am "$gitcommitmsg"
 			git push origin master
 			if [[ "$gitversionnumber" =~ [0-9] ]] ; then

@@ -1,5 +1,13 @@
 # Changelog
 
+### [v2.8.2](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.8.2) (2015-01-04)
+
+* Fixed issue [#12](https://github.com/elundmark/tz-aio-userscript/issues/12).
+* Smaller `meta.js` file.
+* Small modification to highlight pattern (pink).
+* Removed trailing `&tr=` from non-tracker magnet-links.
+* Dropped guaranteed support for Violent Monkey (Opera).
+
 ### [v2.8.1](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.8.1) (2014-12-20)
 
 * Removed PirateBay references, R.I.P.

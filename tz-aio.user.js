@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name          Torrentz All-in-One
 // @description   Does everything you wish Torrentz.eu could do!
-// @version       2.8.1
-// @date          2014-12-20
+// @version       2.8.2
+// @date          2015-01-04
 // @author        elundmark
 // @contact       mail@elundmark.se
 // @license       MIT; http://opensource.org/licenses/MIT
@@ -43,7 +43,7 @@
 // @require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js
 // @require       https://cdn.jsdelivr.net/jquery.spectrum/1.3.3/spectrum.js
 // @resource css1 https://cdn.jsdelivr.net/jquery.spectrum/1.3.3/spectrum.css
-// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-8-1-0
+// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-8-2-0
 // @icon          data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABNVBMVEUAAAAlSm8lSnAlS3AmS3AmTHImTHMmTXQnTnYnT3coTHEoUXkpUnsqVH4qVYArT3MrV4IsWYUtWoguXIovXo0vX44wYJAwYZIxVHcxYpQxY5UyZJYyZZcyZZgzZpk0Z5k1Z5k2aJo3WXs3aZo8bJ09Xn8+bp5CcaBFZYRHdaJJdqNNeaVPbYtQe6dSfahVf6lYdJFbhKxchK1hiK9iibBjfZhnjLJvh6Bylbhzlrh6m7x8kqh8nb2KnrGNqcWRrMeYqbuYssuas8ymtcSovdOqv9SvwtawxNezv8y2yNq5ytu+ydTD0eDJ0tvJ1uPP2ubT2uLZ4uvc4efe5u7f5+7i6fDl6e3p7vPq7fHq7/Ts8PXu8vbw8vTx9Pf19vj2+Pr4+fr4+fv6+/z8/Pz8/P39/f3///871JlNAAAAAXRSTlMAQObYZgAAAXFJREFUeNrt20dPw0AQBeBs6DX0niGhhN57Db333kJn//9PYOdgCQlYEEJ5Ab13mhnb8nfwYSRrQyGBxr3fQiMEEEAAAW8BkrZ8DJA0hgACCCCAAAIIIIAAAgjwAuy346cvBRdRgC0wIHYFBsxaLGAghQWMnlskoG/12f4c4H1CvIknuoYn59dPrAYBCO4igAAA4H0IIIAAAggggAACCPh3AG+MIQALWDalqI9w/NHNdguLoiBAf8qNzlryGgQD6Dh1k9verBrBAFr3dTJhKgUE2NTBgikTEGBR++3s4igIMK3tUV1+o2AAIw+uu+nMqRUMoOfaNU9j4SrBABLH2syZcsEA4ntab5gSAQHWtDyIFDSBAEmtLtpz6wUDmHpxxf1guFowgKE7LWZMhWAA3ZfBCoABtB3aYAWAAJp37OcrgNgv8guAFRusAACAbykl4I8A+PecAAIIIIAAAggggAACMhQAEPC0HQEEEJBJAPjx/1f83wbVqAm3rAAAAABJRU5ErkJggg==
 // @grant         GM_info
 // @grant         GM_addStyle
@@ -66,8 +66,7 @@
 	# Compatibility
 
 	Tested in Firefox v32+ (GreaseMonkey 2.2+, Scriptish v0.1.12),
-	Chrome v37 (Tampermonkey v3.8.52),
-	and Opera v12.16 (Violent Monkey v1.6.3) on Lubuntu 14.04 LTS
+	Chrome v37 (Tampermonkey v3.8.52), on Lubuntu 14.04 LTS
 	Last checked 2014-09-05.
 
 	# GreaseMonkey bugs
@@ -327,10 +326,9 @@ var proxyFix = false;
 			{
 				// Only hiding this because userscrips.org has a strict blacklist
 				name: "pink",
-				pattern: new RegExp(unescape("%28%3f%3a%70%72%6f%6e%7c%70%6f%72%6e%7c%70%30%72%6e"+
-					"%7c%70%72%30%6e%7c%78%78%78%7c%61%64%75%6c%74%7c%28%3f%3a%5c%57%7c%5f%7c%5c"+
-					"%73%29%73%65%78%28%3f%3a%5c%57%7c%5f%7c%5c%73%29%7c%28%3f%3a%5c%57%7c%5f%7c"+
-					"%5c%73%29%31%38%5c%2b%3f%28%3f%3a%5c%57%7c%5f%7c%5c%73%29%29"), "i")
+				pattern: new RegExp(unescape("%28%3f%3a%70%72%6f%6e%7c%70%6f%72%6e%7c%70%30%72%6e%7c%70%72%30%6"+
+					"e%7c%78%78%78%7c%61%64%75%6c%74%7c%28%3f%3a%5c%57%7c%5f%7c%5c%73%29%31%38%5c%2b%3f%28%3f%3a"+
+					"%5c%57%7c%5f%7c%5c%73%29%29"), "i")
 			},{
 				name: "tv",
 				pattern: /(?:\W|_|\s)(?:(?:[a-z]{2})?tv(?:\s?packs?)?|rartv|lol|s[0-9]{2}(?:e[0-9]{2})?|tvteam|discovery|television|series|shows?|episodes?|seasons?)(?:\W|_|\s|$)/i
@@ -885,7 +883,7 @@ var proxyFix = false;
 		trackers = trackers.map(function (e) {
 			return encc(e.trim())+"&tr=";
 		}).join("").replace(/^\&tr=|\&tr=$/g, "");
-		s = cache.magnetURI+hash+"&dn="+encc(title)+"&tr="+trackers;
+		s = cache.magnetURI+hash+"&dn="+encc(title)+(trackers ? "&tr="+trackers : "");
 		return s;
 	}
 	function fixRssLink (url) {
@@ -2176,7 +2174,7 @@ var proxyFix = false;
 				"minPeers": minPeers,
 				"trackerLen": trackerLen,
 				"allTrackers": allTrackers,
-				"wantedTrackers": tz.usc.useTrackers ? allTrackers : currTrackerList,
+				"wantedTrackers": tz.usc.useTrackers ? allTrackers : makeTrackerGenerator.call(null, [])(currTrackerList),
 				"voted": voted,
 				"votes": votes
 			});
@@ -2363,8 +2361,10 @@ var proxyFix = false;
 					;
 					commentDiv.find(" > h2:eq(0)").replaceText(/\(\d+\)/, "(0)");
 				}
+				// Fill trackers textarea
+				setupCopyTextArea(stats.wantedTrackers);
 				if (typeof callback === "function") {
-					return callback(tz.usc.useTrackers ? stats.allTrackers : stats.wantedTrackers);
+					return callback(stats);
 				}
 			});
 		});
@@ -3132,11 +3132,9 @@ var proxyFix = false;
 		// remove ads for single page
 		// inject download-buttons
 		return removeAds("single", null, function () {
-			return makeStatsBar(function (trackers) {
+			return makeStatsBar(function () { // (stats)
 				setupSelectToSearch();
 				els.$downloadDiv.find("a").not(els.$allMagnetLinks).each(doDirectTorrentLink);
-				// Fixed 2014-12-20 11:09 - use "wantedTrackers"
-				setupCopyTextArea(trackers);
 				linkifyCommentLinks();
 				if (typeof callback === "function") {
 					return callback();
@@ -3421,7 +3419,7 @@ var proxyFix = false;
 		cleanSearchQPatt: /(^|\s)(?:site\:[-\.a-z0-9]+|(?:size|added)(?:\:[0-9dymgkt]+|\s*[<\>]\s*[0-9dymgkt]+)|(?:seed|leech|peer)\s*[<\>]\s*[0-9]+)/g,
 		invalidQCharsPatt: /(?:^|\s)file\:|_|\*|\||\^|<|\>|\"/g,
 		metaDLpatt: /(?:explicit\s+results?\s+hidden\s+by\s+family\s+filters?|results?\s+removed\s+in\s+compliance\s+with)/i,
-		validDatePatt: /(.*?)([^0-9=]|\b)(([0-9]{4})\D?(((0[13578]|(10|12))\D?(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)\D?(0[1-9]|[1-2][0-9]|30))))([^0-9]|\b)(.*)/i,
+		validDatePatt: /(.*?)([^0-9=]|\b)(((?:19|20)[0-9]{2})\D?(((0[13578]|(10|12))\D?(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)\D?(0[1-9]|[1-2][0-9]|30))))([^0-9]|\b)(.*)/i,
 		trDomainPatt: /^[a-z]+?\:\/\/([a-z0-9\-\.]+?([a-z0-9\-]+\.[a-z]{2,5}|[0-9]{1,4}\.[0-9]{1,4}\.[0-9]{1,4}\.[0-9]{1,4})(?:\:[0-9]+|\/|$).*)/,
 		trDomainPattAlt: /^[a-z]+?\:\/\/([a-z0-9\-\.]+?([a-z0-9\-]+\.[a-z]{2,5}\.[a-z]{2,5})(?:\:[0-9]+|\/|$).*)/,
 		trBareBonesDomain: /^[a-z]+?\:\/\/([a-z0-9\-]+\.[a-z]{2,5})(?:\:[0-9]+|\/|$).*/,

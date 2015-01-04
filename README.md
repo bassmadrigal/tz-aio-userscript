@@ -8,7 +8,7 @@ _This project is mainly maintained on [github](https://github.com/elundmark/tz-a
 
 ## How to use
 
-1. Install [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) or [Scriptish](https://addons.mozilla.org/en-US/firefox/addon/scriptish/)**(*)** for Firefox, [Tampermonkey](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo) for Google Chrome / Chromium, or [Violent Monkey](https://addons.opera.com/en/extensions/details/violent-monkey/) for Opera.
+1. Install [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) or [Scriptish](https://addons.mozilla.org/en-US/firefox/addon/scriptish/)**(*)** for Firefox, [Tampermonkey](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo) for Google Chrome / Chromium, or [Violent Monkey](https://addons.opera.com/en/extensions/details/violent-monkey/) for Opera (should work but I don't check if it does very often).
 2. Install the userscript itself from any of the following repositories:
 	* **[openuserjs.org](https://openuserjs.org/?q=torrentz)**
 	* **[greasyfork.org](https://greasyfork.org/en/scripts/search?q=torrentz)**
@@ -17,7 +17,7 @@ _This project is mainly maintained on [github](https://github.com/elundmark/tz-a
 
 **(*)** Make sure you use version `0.1.12` or higher. Download the latest version [here](https://addons.mozilla.org/en-US/firefox/addon/scriptish/versions/).
 
-_Tested on Firefox 32+ (GreaseMonkey/Scriptish) Google Chrome 37+ with Tampermonkey, and Opera 12+ with Violent Monkey. It does not work with Chrome's built-in userscript installer._
+_Tested on Firefox 32+ (GreaseMonkey/Scriptish) and Google Chrome 37+ with Tampermonkey. It does not work with Chrome's built-in userscript installer._
 
 ## [Changelog](https://github.com/elundmark/tz-aio-userscript/blob/master/Changelog.md)
 

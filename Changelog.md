@@ -1,5 +1,10 @@
 # Changelog
 
+### [v2.8.3](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.8.3) (2015-01-26)
+
+* Edited the _"stock"_ trackerlist, search-engines and highligh-markers.
+* Fixed issue [#13](https://github.com/elundmark/tz-aio-userscript/issues/13). Edited the `sortResultsByCategory`.
+
 ### [v2.8.2](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.8.2) (2015-01-04)
 
 * Fixed issue [#12](https://github.com/elundmark/tz-aio-userscript/issues/12).

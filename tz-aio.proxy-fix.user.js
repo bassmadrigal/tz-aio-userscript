@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name          Torrentz All-in-One Proxy Fix
 // @description   Does everything you wish Torrentz.eu could do! (This script does not auto update!)
-// @version       2.8.2
-// @date          2015-01-04
+// @version       2.8.3
+// @date          2015-01-26
 // @author        elundmark
 // @contact       mail@elundmark.se
 // @license       MIT; http://opensource.org/licenses/MIT
@@ -19,7 +19,7 @@
 // @require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js
 // @require       https://cdn.jsdelivr.net/jquery.spectrum/1.3.3/spectrum.js
 // @resource css1 https://cdn.jsdelivr.net/jquery.spectrum/1.3.3/spectrum.css
-// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-8-2-0
+// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-8-3-0
 // @icon          data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABNVBMVEUAAAAlSm8lSnAlS3AmS3AmTHImTHMmTXQnTnYnT3coTHEoUXkpUnsqVH4qVYArT3MrV4IsWYUtWoguXIovXo0vX44wYJAwYZIxVHcxYpQxY5UyZJYyZZcyZZgzZpk0Z5k1Z5k2aJo3WXs3aZo8bJ09Xn8+bp5CcaBFZYRHdaJJdqNNeaVPbYtQe6dSfahVf6lYdJFbhKxchK1hiK9iibBjfZhnjLJvh6Bylbhzlrh6m7x8kqh8nb2KnrGNqcWRrMeYqbuYssuas8ymtcSovdOqv9SvwtawxNezv8y2yNq5ytu+ydTD0eDJ0tvJ1uPP2ubT2uLZ4uvc4efe5u7f5+7i6fDl6e3p7vPq7fHq7/Ts8PXu8vbw8vTx9Pf19vj2+Pr4+fr4+fv6+/z8/Pz8/P39/f3///871JlNAAAAAXRSTlMAQObYZgAAAXFJREFUeNrt20dPw0AQBeBs6DX0niGhhN57Db333kJn//9PYOdgCQlYEEJ5Ab13mhnb8nfwYSRrQyGBxr3fQiMEEEAAAW8BkrZ8DJA0hgACCCCAAAIIIIAAAgjwAuy346cvBRdRgC0wIHYFBsxaLGAghQWMnlskoG/12f4c4H1CvIknuoYn59dPrAYBCO4igAAA4H0IIIAAAggggAACCPh3AG+MIQALWDalqI9w/NHNdguLoiBAf8qNzlryGgQD6Dh1k9verBrBAFr3dTJhKgUE2NTBgikTEGBR++3s4igIMK3tUV1+o2AAIw+uu+nMqRUMoOfaNU9j4SrBABLH2syZcsEA4ntab5gSAQHWtDyIFDSBAEmtLtpz6wUDmHpxxf1guFowgKE7LWZMhWAA3ZfBCoABtB3aYAWAAJp37OcrgNgv8guAFRusAACAbykl4I8A+PecAAIIIIAAAggggAACMhQAEPC0HQEEEJBJAPjx/1f83wbVqAm3rAAAAABJRU5ErkJggg==
 // @grant         GM_info
 // @grant         GM_addStyle
@@ -75,6 +75,29 @@
 		http://briangrinstead.com
 
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 "use strict";
 
@@ -157,37 +180,26 @@ var proxyFix = true;
 				"itunes|http://www.apple.com/search/?q=%s&section=ipoditunes",
 				"amazon|http://www.amazon.com/s/?field-keywords=%s",
 				"wikipedia|http://en.wikipedia.org/w/index.php?search=%s",
-				"isohunt|http://isohunt.to/torrents/?ihq=%s",
+				"torrentproject|http://torrentproject.se/?t=%s",
 				"youtube|https://www.youtube.com/results?search_query=%s",
 				"google|https://www.google.com/search?q=%s"
 			];
 			opts.defaultHLMarkers = [
 				"any|1080p,720p",
 				"movie|DD5",
-				"tv|r/GoodTV/(?:e[zt]|rar)tv/",
+				"tv|r/GoodTV/(?:e[zt]|c4|ba|rar)tv/",
 				"music|Flac,320"
 			];
 			opts.defaultTrackers = [
-				"http://tracker.best-torrents.net:6969/announce",
-				"http://www.eddie4.nl:6969/announce",
 				"udp://tracker.openbittorrent.com:80/",
 				"http://tracker.openbittorrent.com:80/",
 				"udp://tracker.publicbt.com:80/",
 				"http://tracker.publicbt.com:80/",
 				"udp://tracker.istole.it:6969/",
-				"udp://tracker.ccc.de:80/",
-				"http://tracker.ccc.de:80/",
 				"udp://fr33dom.h33t.com:3310/announce",
 				"http://inferno.demonoid.com:3407/announce",
-				"http://tracker.ilibr.org:6969/announce",
-				"udp://tracker.prq.to/announce",
-				"http://tracker.torrent.to:2710/announce",
 				"udp://11.rarbg.com/announce",
 				"http://9.rarbg.com:2710/announce",
-				"http://bt1.the9.com:6969/announce",
-				"http://exodus.desync.com:6969/announce",
-				"http://tracker.xpear.de:6969/announce",
-				"udp://open.demonii.com:1337/announce",
 				"http://tracker.yify-torrents.com/announce"
 			];
 			opts.customCss = [
@@ -2856,10 +2868,10 @@ var proxyFix = true;
 			if ($dls.length) {
 				$dls.detach().sort(function(a, b) {
 					var adl = a.className.replace(clsPatt, "").trim(),
-						bdl = b.className.replace(clsPatt, "").trim(),
-						so;
-					if (!adl || !bdl) return 0;
-					return (so=(adl > bdl)) ? so ? 1 : 0 : -1;
+						bdl = b.className.replace(clsPatt, "").trim();
+					adl = adl || "zzzzzzzzz";
+					bdl = bdl || "zzzzzzzzz";
+					return adl > bdl ? 1 : adl < bdl ? -1 : 0;
 				});
 				return insertTarget.after($dls);
 			}

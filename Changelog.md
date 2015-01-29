@@ -1,5 +1,9 @@
 # Changelog
 
+### [v2.8.4](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.8.4) (2015-01-29)
+
+* Colorizer had to be enabled to have the Highlighter, fixed issue [#14](https://github.com/elundmark/tz-aio-userscript/issues/14). Many thanks to [vitae@openuserjs.org](https://openuserjs.org/users/vitae) for an excellent [issue report](https://openuserjs.org/scripts/elundmark/Torrentz_All-in-One/issues/Slight_Bug).
+
 ### [v2.8.3](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.8.3) (2015-01-26)
 
 * Edited the _"stock"_ trackerlist, search-engines and highligh-markers.

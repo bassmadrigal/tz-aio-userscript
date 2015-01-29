@@ -1343,7 +1343,8 @@ var proxyFix = true;
 			}
 		}).val(tz.usc.defaultHLMarkers.join("\n")).appendTo(f);
 		makeTextNode("Custom keywords that appears above the main search results, "+
-			"which when clicked will highlight all matching words in each result. Uses category|mark1,mark2 formatting, where "+
+			"which when clicked will highlight all matching words in each result category. "+
+				"It uses category|mark1,mark2 formatting, where a "+
 				"category can be one of the following words: ").add(
 		$("<b/>", {
 			"text": "any "+(getSearchGenres(true).join(" "))
@@ -1363,7 +1364,7 @@ var proxyFix = true;
 			"This can also be done for regular expressions, see an example of this below.")).add(
 		$("<br/>")).add(
 		$("<b/>", { "text": "Remember! Saving will switch off all your current markers, this is normal." })).add(
-		$("<br/>")).add(
+		$("<br/><br/>")).add(
 		$("<i/>", { "text": "These are some valid examples:" })).add(
 		$("<br/>")).add(
 		$("<pre/>", {
@@ -1413,8 +1414,8 @@ var proxyFix = true;
 		}).val(tz.usc.excludeFilter).appendTo(f);
 		makeTextNode("If you want to hide certain torrents (based on name), enter some key phrases here "+
 			"(comma seperated). Remember that they are ").add(
-		$("<em/>", "text", "not")).add(
-		makeTextNode(" case-sensitive, and that spaces will match any letter. Advanced usage: This supports ")).add(
+		$("<em/>", { "text": "not" })).add(
+		makeTextNode(" case-sensitive, and that spaces matches any letter. Advanced usage: This supports ")).add(
 		$("<a/>", {
 			"href": "http://www.regular-expressions.info/javascript.html",
 			"attr": { "target": "_blank" },

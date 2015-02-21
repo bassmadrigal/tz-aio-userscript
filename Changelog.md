@@ -1,5 +1,13 @@
 # Changelog
 
+### [v2.8.5](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.8.5) (2015-02-21)
+
+* New domain mirror: [bestdownload.eu](http://bestdownload.eu/).
+* Fixed highlight markers resetting on save.
+* Added filesoup iframes as removable ads.
+* TPB links works again.
+* Small CSS change for the infobar.
+
 ### [v2.8.4](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.8.4) (2015-01-29)
 
 * Colorizer had to be enabled to have the Highlighter, fixed issue [#14](https://github.com/elundmark/tz-aio-userscript/issues/14). Many thanks to [vitae@openuserjs.org](https://openuserjs.org/users/vitae) for an excellent [issue report](https://openuserjs.org/scripts/elundmark/Torrentz_All-in-One/issues/Slight_Bug).

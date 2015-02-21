@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name          Torrentz All-in-One Proxy Fix
 // @description   Does everything you wish Torrentz.eu could do! (This script does not auto update!)
-// @version       2.8.4
-// @date          2015-01-29
+// @version       2.8.5
+// @date          2015-02-21
 // @author        elundmark
 // @contact       mail@elundmark.se
 // @license       MIT; http://opensource.org/licenses/MIT
@@ -19,7 +19,7 @@
 // @require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js
 // @require       https://cdn.jsdelivr.net/jquery.spectrum/1.3.3/spectrum.js
 // @resource css1 https://cdn.jsdelivr.net/jquery.spectrum/1.3.3/spectrum.css
-// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-8-4-0
+// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-8-5-0
 // @icon          data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABNVBMVEUAAAAlSm8lSnAlS3AmS3AmTHImTHMmTXQnTnYnT3coTHEoUXkpUnsqVH4qVYArT3MrV4IsWYUtWoguXIovXo0vX44wYJAwYZIxVHcxYpQxY5UyZJYyZZcyZZgzZpk0Z5k1Z5k2aJo3WXs3aZo8bJ09Xn8+bp5CcaBFZYRHdaJJdqNNeaVPbYtQe6dSfahVf6lYdJFbhKxchK1hiK9iibBjfZhnjLJvh6Bylbhzlrh6m7x8kqh8nb2KnrGNqcWRrMeYqbuYssuas8ymtcSovdOqv9SvwtawxNezv8y2yNq5ytu+ydTD0eDJ0tvJ1uPP2ubT2uLZ4uvc4efe5u7f5+7i6fDl6e3p7vPq7fHq7/Ts8PXu8vbw8vTx9Pf19vj2+Pr4+fr4+fv6+/z8/Pz8/P39/f3///871JlNAAAAAXRSTlMAQObYZgAAAXFJREFUeNrt20dPw0AQBeBs6DX0niGhhN57Db333kJn//9PYOdgCQlYEEJ5Ab13mhnb8nfwYSRrQyGBxr3fQiMEEEAAAW8BkrZ8DJA0hgACCCCAAAIIIIAAAgjwAuy346cvBRdRgC0wIHYFBsxaLGAghQWMnlskoG/12f4c4H1CvIknuoYn59dPrAYBCO4igAAA4H0IIIAAAggggAACCPh3AG+MIQALWDalqI9w/NHNdguLoiBAf8qNzlryGgQD6Dh1k9verBrBAFr3dTJhKgUE2NTBgikTEGBR++3s4igIMK3tUV1+o2AAIw+uu+nMqRUMoOfaNU9j4SrBABLH2syZcsEA4ntab5gSAQHWtDyIFDSBAEmtLtpz6wUDmHpxxf1guFowgKE7LWZMhWAA3ZfBCoABtB3aYAWAAJp37OcrgNgv8guAFRusAACAbykl4I8A+PecAAIIIIAAAggggAACMhQAEPC0HQEEEJBJAPjx/1f83wbVqAm3rAAAAABJRU5ErkJggg==
 // @grant         GM_info
 // @grant         GM_addStyle
@@ -509,7 +509,7 @@ var proxyFix = true;
 				// take.fm/movies/999/releases/9999/torrent/download?file=Title+of+torrent.torrent
 				directHref = slashSplit && slashSplit.length >= 7 ? "http://take.fm/movies/"+slashSplit[4]+
 					"/releases/"+slashSplit[6]+"/torrent/download?file="+titleEnc+".torrent" : null;
-			/*} else if (is("thepiratebay.sx/torrent/")
+			} else if (is("thepiratebay.sx/torrent/")
 				|| is("thepiratebay.ac/torrent/")
 				|| is("thepiratebay.pe/torrent/")
 				|| is("thepiratebay.org/torrent/")
@@ -527,7 +527,7 @@ var proxyFix = true;
 				// 2014-04-18 remove fastpiratebay.eu proxy links and redo slashSplit
 				slashSplit = href.replace("fastpiratebay.eu/","").split("/");
 				directHref = slashSplit && slashSplit.length >= 5 ? "http://torrents."+slashSplit[2]+
-					"/"+slashSplit[4]+"/"+titleEnc+"."+slashSplit[4]+".TPB.torrent" : null;*/
+					"/"+slashSplit[4]+"/"+titleEnc+"."+slashSplit[4]+".TPB.torrent" : null;
 			} else if (is("yts.re/movie/")) {
 				// last checked 2014-11-13
 				directHref = "https://yts.re/download/start/"+HASH+".torrent";
@@ -781,50 +781,6 @@ var proxyFix = true;
 	}
 	function noModKeys (i) {
 		return !!(!i.ctrlKey && !i.shiftKey && !i.altKey && !i.metaKey);
-	}
-	function validUserInput (urls) {
-		var returnBool = true,
-			checkArray,
-			i;
-		// pass through empty values
-		if (urls.match(/\S/)) {
-			checkArray = __.compact(urls.trim().split(/\s+/));
-			for (i = 0; i < checkArray.length; i+=1) {
-				if (!checkArray[i].trim().match(cache.matchUrlPatt)) {
-					returnBool = false;
-					break;
-				}
-			}
-		}
-		return returnBool;
-	}
-	function validateLinePattern (s, leftPatt, rightSpt, rightPatt) {
-		var v = true;
-		s.split(/(?:\r?\n)+/).forEach(function (line) {
-			var mainSpt;
-			if (!line.trim()) {
-				v = false;
-				return;
-			}
-			mainSpt = line.split("|");
-			if (mainSpt.length > 2) {
-				mainSpt = [ mainSpt[0], mainSpt.slice(1).join("|") ];
-			}
-			if (!mainSpt[0] || !(leftPatt.test(mainSpt[0]))) {
-				v = false;
-				return;
-			}
-			if (rightSpt) {
-				mainSpt[1].split(rightSpt).forEach(function (rl) {
-					if (!(rightPatt.test(rl))) {
-						v = false;
-					}
-				});
-			} else if (!(rightPatt.test(mainSpt[1]))) {
-				v = false;
-			}
-		});
-		return v;
 	}
 	function isAnyInputFocused () {
 		var activeEl = $(d.activeElement);
@@ -1894,7 +1850,7 @@ var proxyFix = true;
 	function removeAds (page, element, callback) {
 		var adRemovedClass = "removed_ad",
 			$tmpLink = $("<a/>", { href: "/" }),
-			$adIframes = els.$body.find("> iframe"),
+			$adIframes = els.$body.find("> iframe, iframe[src*='.filesoup.com']"),
 			adClasses = [
 				".SPECIFICELEMENT",
 				".dontblockmebro",
@@ -2467,27 +2423,6 @@ var proxyFix = true;
 				return callback(resultsElement, showingGenres);
 			}
 		};
-	}
-	function validateRegExp (pattStr) {
-		var isValid,
-			fooPatt;
-		if (pattStr.match(/^\s*\//) && pattStr.match(/\/\s*$/)) {
-			pattStr = pattStr.replace(/(?:^\s*\/|\/\s*$)/g, "");
-			try {
-				fooPatt = new RegExp(pattStr,"i");
-				isValid = __.isRegExp(fooPatt);
-			} catch (error) {
-				sendLog("not a valid regexp pattern!");
-				sendLog(error);
-				isValid = false;
-			}
-		} else if (pattStr.match(/(?:^\s*\/|\/\s*$)/)) {
-			// Catches '/sd' or 'sd/' since we matched '/asd/' earlier
-			isValid = false;
-		} else {
-			isValid = true;
-		}
-		return isValid;
 	}
 	function makeExcludePatt (s) {
 		var convPatt,
@@ -3113,9 +3048,10 @@ var proxyFix = true;
 		// and that it might not be available at all times
 		els.$firstInfoDiv = els.$body.find(" > div.info:eq(0)");
 		// single page selectors
-		els.$downloadDiv = els.$body.find(".download:eq(0)");
-		els.$torrTitle = els.$body.find("h2:eq(0) span");
-		els.$titleEl = els.$body.find("h2:eq(0)");
+		// 2015-02-21 16:30 - Changed to better handle multiple .download elements like ads
+		els.$downloadDiv = els.$body.find(".download").has("dl, h2").eq(0);
+		els.$titleEl = els.$downloadDiv.find("h2:eq(0)");
+		els.$torrTitle = els.$titleEl.find("span:eq(0)");
 		els.$comments = els.$body.find(".comment");
 		// titles
 		tz.page.title = els.$torrTitle.text();
@@ -3132,6 +3068,170 @@ var proxyFix = true;
 				}
 			});
 		});
+	}
+	function handleSettingsSubmission (event) {
+		event.preventDefault();
+		var disabledInput = els.$settingsForm.find(".s input[type='submit']")
+				.prop("disabled", true),
+			markersPatt = new RegExp("^(?:any|"+(getSearchGenres(true).join("|"))+")$"),
+			validUserInput = function (urls) {
+				var returnBool = true,
+					checkArray,
+					i;
+				// pass through empty values
+				if (urls.match(/\S/)) {
+					checkArray = __.compact(urls.trim().split(/\s+/));
+					for (i = 0; i < checkArray.length; i+=1) {
+						if (!checkArray[i].trim().match(cache.matchUrlPatt)) {
+							returnBool = false;
+							break;
+						}
+					}
+				}
+				return returnBool;
+			},
+			validateLinePattern = function (s, leftPatt, rightSpt, rightPatt) {
+				var v = true;
+				s.split(/(?:\r?\n)+/).forEach(function (line) {
+					var mainSpt;
+					if (!line.trim()) {
+						v = false;
+						return;
+					}
+					mainSpt = line.split("|");
+					if (mainSpt.length > 2) {
+						mainSpt = [ mainSpt[0], mainSpt.slice(1).join("|") ];
+					}
+					if (!mainSpt[0] || !(leftPatt.test(mainSpt[0]))) {
+						v = false;
+						return;
+					}
+					if (rightSpt) {
+						mainSpt[1].split(rightSpt).forEach(function (rl) {
+							if (!(rightPatt.test(rl))) {
+								v = false;
+							}
+						});
+					} else if (!(rightPatt.test(mainSpt[1]))) {
+						v = false;
+					}
+				});
+				return v;
+			},
+			validateRegExp = function (pattStr) {
+				var isValid,
+					fooPatt;
+				if (pattStr.match(/^\s*\//) && pattStr.match(/\/\s*$/)) {
+					pattStr = pattStr.replace(/(?:^\s*\/|\/\s*$)/g, "");
+					try {
+						fooPatt = new RegExp(pattStr,"i");
+						isValid = __.isRegExp(fooPatt);
+					} catch (error) {
+						sendLog("not a valid regexp pattern!");
+						sendLog(error);
+						isValid = false;
+					}
+				} else if (pattStr.match(/(?:^\s*\/|\/\s*$)/)) {
+					// Catches '/sd' or 'sd/' since we matched '/asd/' earlier
+					isValid = false;
+				} else {
+					isValid = true;
+				}
+				return isValid;
+			},
+			invalidItemNames = "",
+			submittedOptions = {},
+			saveTrackers,
+			saveSearchEngines,
+			saveHLMarkers,
+			saveCustomCss,
+			confirmNewStorageRules,
+			trackersVal,
+			searchEnginesVal,
+			hlMarkersVal,
+			customCssVal,
+			excludeFilterVal,
+			trValid,
+			seValid,
+			hlValid,
+			exValid;
+		els.$settingsForm.find(":checkbox").each(function (index, element) {
+			var settingName = element.id.replace(tzCl+"_",""),
+				settingValue = $(element).is(":checked");
+			submittedOptions[settingName] = settingValue;
+		});
+		els.$defTrackersTextArea = $("#"+tzCl+"_default_trackers_textarea");
+		els.$defSearchEngTextArea = $("#"+tzCl+"_default_searchengines_textarea");
+		els.$defHLMarkersTextArea = $("#"+tzCl+"_default_hlmarkers_textarea");
+		els.$customCssTextArea = $("#"+tzCl+"_custom_css_textarea");
+		els.$excludeFilterInput = $("#"+tzCl+"_exclude_filter_input");
+		trackersVal = els.$defTrackersTextArea.val();
+		searchEnginesVal = els.$defSearchEngTextArea.val().replace(/^\s+|\s+$/gm, "");
+		hlMarkersVal = els.$defHLMarkersTextArea.val().replace(/^\s+|\s+$/gm, "");
+		customCssVal = els.$customCssTextArea.val();
+		excludeFilterVal = els.$excludeFilterInput.val().trim();
+		// Validate inputs to help out user
+		trValid = validUserInput(trackersVal);
+		seValid = !submittedOptions.searchTabs
+			|| validateLinePattern(searchEnginesVal, (/^.+$/), null, (/^[a-z]+:\S+$/));
+		hlValid = !submittedOptions.highlightMarkers
+			|| validateLinePattern(hlMarkersVal, markersPatt, ",", (/^.+$/i));
+		exValid = !submittedOptions.useExcludeFilter
+			|| validateRegExp(excludeFilterVal);
+
+		if (seValid && hlValid && trValid && exValid) {
+			saveTrackers = trackersVal.split(/(?:\r?\n)+/);
+			saveTrackers = __.uniq(saveTrackers).map(function (s) { return s.trim(); });
+			saveSearchEngines = searchEnginesVal.split(/(?:\r?\n)+/);
+			saveSearchEngines = __.compact(saveSearchEngines);
+			saveHLMarkers = hlMarkersVal.split(/(?:\r?\n)+/);
+			saveCustomCss = customCssVal.split(/(?:\r?\n)+/);
+			submittedOptions.defaultTrackers = saveTrackers;
+			submittedOptions.searchEngines = saveSearchEngines;
+			submittedOptions.defaultHLMarkers = saveHLMarkers;
+			submittedOptions.customCss = saveCustomCss;
+			submittedOptions.searchResultColors = tz.usc.searchResultColors;
+			submittedOptions.excludeFilter = excludeFilterVal.replace(/(?:^\s*\,|\,\s*$)/g,"")
+				.replace(/\,{2,}/g,",").trim();
+			if (cache.freshUser) {
+				confirmNewStorageRules = window.confirm("Settings are now being stored and used "+
+					"across all Torrentz's domains.\nSave and continue?");
+			}
+			if (!cache.freshUser || confirmNewStorageRules) {
+				setStorageOptions(submittedOptions, function (thisWasSaved) {
+					// log before anything could break, as a debug toll for anyone to submit
+					sendLog("This was saved, please add the following output to any issue report "+
+						"you have.");
+					sendLog(thisWasSaved);
+					if (thisWasSaved) {
+						sessionStorage.setItem(tzCl+"_SS_useroptions_saved", "true");
+						location.href = tz.page.href;
+					} else {
+						disabledInput.prop("disabled", false);
+						window.alert("You broke something! Try reloading the page..."+cache.bugReportMsg);
+						sendLog("GM_getValue("+tz.env.storageName+") returned false! "+
+							"Nothing stored, logging that plus 'submittedOptions'");
+						sendLog("Failed! > submittedOptions");
+						sendLog(submittedOptions);
+						return;
+					}
+				});
+			} else {
+				disabledInput.prop("disabled", false);
+			}
+		} else {
+			invalidItemNames = !hlValid ? invalidItemNames+" 'Highlight markers',"
+				: invalidItemNames;
+			invalidItemNames = !seValid ? invalidItemNames+" 'Search engines list',"
+				: invalidItemNames;
+			invalidItemNames = !trValid ? invalidItemNames+" 'Default trackerlist',"
+				: invalidItemNames;
+			invalidItemNames = !exValid ? invalidItemNames+" 'Exclude filter (regexp)',"
+				: invalidItemNames;
+			window.alert("Invalid input for: "+invalidItemNames+" - check your spelling!"+cache.bugReportMsg);
+			disabledInput.prop("disabled", false);
+		}
+		return false;
 	}
 	function initSettingsPanel (callback) {
 		var settingsButton = $("<a/>", {
@@ -3156,106 +3256,7 @@ var proxyFix = true;
 					els.$topDiv.after(formEl);
 					els.$topDiv.after(makeSettParagraph());
 					els.$scriptInfoP = els.$topDiv.next("p.generic");
-					els.$settingsForm = $("#"+tzCl+"_settings_submit").on("submit", function (event) {
-						event.preventDefault();
-						var disabledInput = els.$settingsForm.find(".s input[type='submit']")
-								.prop("disabled", true),
-							markersPatt = new RegExp("^(?:any|"+(getSearchGenres(true).join("|"))+")$"),
-							invalidItemNames = "",
-							submittedOptions = {},
-							saveTrackers,
-							saveSearchEngines,
-							saveHLMarkers,
-							saveCustomCss,
-							confirmNewStorageRules,
-							trackersVal,
-							searchEnginesVal,
-							hlMarkersVal,
-							customCssVal,
-							excludeFilterVal,
-							trValid,
-							seValid,
-							hlValid,
-							exValid;
-						els.$settingsForm.find(":checkbox").each(function (index, element) {
-							var settingName = element.id.replace(tzCl+"_",""),
-								settingValue = $(element).is(":checked");
-							submittedOptions[settingName] = settingValue;
-						});
-						els.$defTrackersTextArea = $("#"+tzCl+"_default_trackers_textarea");
-						els.$defSearchEngTextArea = $("#"+tzCl+"_default_searchengines_textarea");
-						els.$defHLMarkersTextArea = $("#"+tzCl+"_default_hlmarkers_textarea");
-						els.$customCssTextArea = $("#"+tzCl+"_custom_css_textarea");
-						els.$excludeFilterInput = $("#"+tzCl+"_exclude_filter_input");
-						trackersVal = els.$defTrackersTextArea.val();
-						searchEnginesVal = els.$defSearchEngTextArea.val().replace(/^\s+|\s+$/gm, "");
-						hlMarkersVal = els.$defHLMarkersTextArea.val().replace(/^\s+|\s+$/gm, "");
-						customCssVal = els.$customCssTextArea.val();
-						excludeFilterVal = els.$excludeFilterInput.val().trim();
-						// Validate inputs to help out user
-						trValid = validUserInput(trackersVal);
-						seValid = !submittedOptions.searchTabs
-							|| validateLinePattern(searchEnginesVal, (/^.+$/), null, (/^[a-z]+:\S+$/));
-						hlValid = !submittedOptions.highlightMarkers
-							|| validateLinePattern(hlMarkersVal, markersPatt, ",", (/^.+$/i));
-						exValid = !submittedOptions.useExcludeFilter
-							|| validateRegExp(excludeFilterVal);
-
-						if (seValid && hlValid && trValid && exValid) {
-							saveTrackers = trackersVal.split(/(?:\r?\n)+/);
-							saveTrackers = __.uniq(saveTrackers).map(function (s) { return s.trim(); });
-							saveSearchEngines = searchEnginesVal.split(/(?:\r?\n)+/);
-							saveSearchEngines = __.compact(saveSearchEngines);
-							saveHLMarkers = hlMarkersVal.split(/(?:\r?\n)+/);
-							saveCustomCss = customCssVal.split(/(?:\r?\n)+/);
-							submittedOptions.defaultTrackers = saveTrackers;
-							submittedOptions.searchEngines = saveSearchEngines;
-							submittedOptions.defaultHLMarkers = saveHLMarkers;
-							submittedOptions.customCss = saveCustomCss;
-							submittedOptions.searchResultColors = tz.usc.searchResultColors;
-							submittedOptions.excludeFilter = excludeFilterVal.replace(/(?:^\s*\,|\,\s*$)/g,"")
-								.replace(/\,{2,}/g,",").trim();
-							if (cache.freshUser) {
-								confirmNewStorageRules = window.confirm("Settings are now being stored and used "+
-									"across all Torrentz's domains.\nSave and continue?");
-							}
-							if (!cache.freshUser || confirmNewStorageRules) {
-								setStorageOptions(submittedOptions, function (thisWasSaved) {
-									// log before anything could break, as a debug toll for anyone to submit
-									sendLog("This was saved, please add the following output to any issue report "+
-										"you have.");
-									sendLog(thisWasSaved);
-									if (thisWasSaved) {
-										GM_setValue(tzCl+"_activeMarkers", "[]");
-										sessionStorage.setItem(tzCl+"_SS_useroptions_saved", "true");
-										location.href = tz.page.href;
-									} else {
-										disabledInput.prop("disabled", false);
-										window.alert("You broke something! Try reloading the page..."+cache.bugReportMsg);
-										sendLog("GM_getValue("+tz.env.storageName+") returned false! "+
-											"Nothing stored, logging that plus 'submittedOptions'");
-										sendLog("Failed! > submittedOptions");
-										sendLog(submittedOptions);
-										return;
-									}
-								});
-							} else {
-								disabledInput.prop("disabled", false);
-							}
-						} else {
-							invalidItemNames = !hlValid ? invalidItemNames+" 'Highlight markers',"
-								: invalidItemNames;
-							invalidItemNames = !seValid ? invalidItemNames+" 'Search engines list',"
-								: invalidItemNames;
-							invalidItemNames = !trValid ? invalidItemNames+" 'Default trackerlist',"
-								: invalidItemNames;
-							invalidItemNames = !exValid ? invalidItemNames+" 'Exclude filter (regexp)',"
-								: invalidItemNames;
-							window.alert("Invalid input for: "+invalidItemNames+" - check your spelling!"+cache.bugReportMsg);
-							disabledInput.prop("disabled", false);
-						}
-						return false;
-					});
+					els.$settingsForm = $("#"+tzCl+"_settings_submit").on("submit", handleSettingsSubmission);
 					els.$settingsForm.find("."+tzCl+"_user_sr_color").spectrum({
 						showInput: true,
 						showInitial: true,

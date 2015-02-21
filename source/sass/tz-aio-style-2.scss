@@ -160,7 +160,7 @@ $blinkto:   0.0;
 		font-weight: 400;
 		padding-left: 20px;
 		background-image: $LIGHTPINK;
-		@include background-image(linear-gradient(left, $LIGHTPINK 0%, $LIGHTPINK 79%, $WHITE 100%));
+		@include background-image(linear-gradient(right, $LIGHTPINK 0%, $LIGHTPINK 79%, $WHITE 100%));
 
 		a {
 			color: $GREENUNVERIFIED;

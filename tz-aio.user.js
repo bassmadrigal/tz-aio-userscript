@@ -34,6 +34,8 @@
 // @include       http*://www.torrents.de/*
 // @include       http*://tz.ai/*
 // @include       http*://www.tz.ai/*
+// @include       http*://bestdownload.eu/*
+// @include       http*://www.bestdownload.eu/*
 // @include       http*://torrentz.filesoup.com/*
 // @exclude       /^https?://[^/]+/feed(?:_[a-zA-Z]+)?\?.*/
 // @exclude       /^https?://[^/]+/announcelist_.*/

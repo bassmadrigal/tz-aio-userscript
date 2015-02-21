@@ -23,4 +23,5 @@ Applies to the following domains:
   * torrents.de
   * tz.ai
   * torrentz-proxy.com
+  * bestdownload.eu
   * torrentz.filesoup.com

@@ -16,10 +16,11 @@ Applies to the following domains:
   * torrentz.com
   * torrentz.me
   * torrentz.in
-  * torrentz.hk
+  * torrentz.hkq
   * torrentz.ch
   * torrents.de
   * tz.ai
   * torrentz-proxy.com
   * bestdownload.eu
+  * torrentsmirror.com
   * torrentz.filesoup.com

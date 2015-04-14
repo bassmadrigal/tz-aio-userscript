@@ -1,5 +1,14 @@
 # Changelog
 
+### [v2.9.0](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.0) (2015-04-14)
+
+* Fixed CSS for new wider layout.
+* New domain mirror: [torrentsmirror.com](https://www.torrentsmirror.com/)
+* Updated the browser cookie to block new popup ads. `wm_popundertz=2`
+* Reduced the default trackerlist to the top 4 most useful and valid ones.
+* Changed the way copying trackers works, less confusing than before I hope.
+* Next release will have a better solution for using _trakcer-free_ magnet-links.
+
 ### [v2.8.5](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.8.5) (2015-02-21)
 
 * New domain mirror: [bestdownload.eu](http://bestdownload.eu/).

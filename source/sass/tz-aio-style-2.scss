@@ -148,7 +148,7 @@ $blinkto:   0.0;
 	}
 
 	.tz_aio_info_bar {
-		text-align: left;
+		text-align: center;
 		position: relative;
 		margin: 0;
 		font-size: 17px;
@@ -158,9 +158,8 @@ $blinkto:   0.0;
 		overflow-x: hidden;
 		white-space: nowrap;
 		font-weight: 400;
-		padding-left: 20px;
 		background-image: $LIGHTPINK;
-		@include background-image(linear-gradient(right, $LIGHTPINK 0%, $LIGHTPINK 79%, $WHITE 100%));
+		@include background-image(linear-gradient(right, $WHITE 0%, $LIGHTPINK 20%, $LIGHTPINK 80%, $WHITE 100%));
 
 		a {
 			color: $GREENUNVERIFIED;
@@ -223,7 +222,7 @@ $blinkto:   0.0;
 		}
 		.tz_aio_sep {
 			color: $RGBATRANSP;
-			padding: 0 5px;
+			padding: 0 13px;
 			display: inline-block;
 			box-sizing: border-box;
 			max-width: 16px;
@@ -716,7 +715,7 @@ $blinkto:   0.0;
 		position: relative !important;
 		background-color: $WHITE;
 		& > dt {
-			width: 694px;
+			width: 826px;
 			& > a mark {
 				color: inherit;
 				font-weight: inherit;
@@ -755,8 +754,8 @@ $blinkto:   0.0;
 		width: 24px;
 		height: 16px;
 		position: absolute;
-		top: 5px;
-		left: 698px;
+		bottom: 7px;
+		left: 830px;
 		overflow: visible;
 		z-index: 5;
 		a {
@@ -798,6 +797,8 @@ $blinkto:   0.0;
 }
 .tz_aio_b.tz_aio_v2 .results {
 	.meta-info {
+		text-align: center;
+		width: 100%;
 		&.colorizeme, &.colorizeme:hover {
 			background-color: $DMCA;
 			border-bottom-color: $DMCA;
@@ -805,7 +806,7 @@ $blinkto:   0.0;
 			position: static;
 		}
 		dt {
-			text-align: right;
+			width: auto;
 		}
 	}
 	.meta-dmca {

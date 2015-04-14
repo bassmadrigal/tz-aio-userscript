@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name          Torrentz All-in-One
 // @description   Does everything you wish Torrentz.eu could do!
-// @version       2.8.5
-// @date          2015-02-21
+// @version       2.9.0
+// @date          2015-04-14
 // @author        elundmark
 // @contact       mail@elundmark.se
 // @license       MIT; http://opensource.org/licenses/MIT
@@ -36,6 +36,8 @@
 // @include       http*://www.tz.ai/*
 // @include       http*://bestdownload.eu/*
 // @include       http*://www.bestdownload.eu/*
+// @include       http*://torrentsmirror.com/*
+// @include       http*://www.torrentsmirror.com/*
 // @include       http*://torrentz.filesoup.com/*
 // @exclude       /^https?://[^/]+/feed(?:_[a-zA-Z]+)?\?.*/
 // @exclude       /^https?://[^/]+/announcelist_.*/
@@ -45,7 +47,7 @@
 // @require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js
 // @require       https://cdn.jsdelivr.net/jquery.spectrum/1.3.3/spectrum.js
 // @resource css1 https://cdn.jsdelivr.net/jquery.spectrum/1.3.3/spectrum.css
-// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-8-5-0
+// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-9-0-0
 // @icon          data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABNVBMVEUAAAAlSm8lSnAlS3AmS3AmTHImTHMmTXQnTnYnT3coTHEoUXkpUnsqVH4qVYArT3MrV4IsWYUtWoguXIovXo0vX44wYJAwYZIxVHcxYpQxY5UyZJYyZZcyZZgzZpk0Z5k1Z5k2aJo3WXs3aZo8bJ09Xn8+bp5CcaBFZYRHdaJJdqNNeaVPbYtQe6dSfahVf6lYdJFbhKxchK1hiK9iibBjfZhnjLJvh6Bylbhzlrh6m7x8kqh8nb2KnrGNqcWRrMeYqbuYssuas8ymtcSovdOqv9SvwtawxNezv8y2yNq5ytu+ydTD0eDJ0tvJ1uPP2ubT2uLZ4uvc4efe5u7f5+7i6fDl6e3p7vPq7fHq7/Ts8PXu8vbw8vTx9Pf19vj2+Pr4+fr4+fv6+/z8/Pz8/P39/f3///871JlNAAAAAXRSTlMAQObYZgAAAXFJREFUeNrt20dPw0AQBeBs6DX0niGhhN57Db333kJn//9PYOdgCQlYEEJ5Ab13mhnb8nfwYSRrQyGBxr3fQiMEEEAAAW8BkrZ8DJA0hgACCCCAAAIIIIAAAgjwAuy346cvBRdRgC0wIHYFBsxaLGAghQWMnlskoG/12f4c4H1CvIknuoYn59dPrAYBCO4igAAA4H0IIIAAAggggAACCPh3AG+MIQALWDalqI9w/NHNdguLoiBAf8qNzlryGgQD6Dh1k9verBrBAFr3dTJhKgUE2NTBgikTEGBR++3s4igIMK3tUV1+o2AAIw+uu+nMqRUMoOfaNU9j4SrBABLH2syZcsEA4ntab5gSAQHWtDyIFDSBAEmtLtpz6wUDmHpxxf1guFowgKE7LWZMhWAA3ZfBCoABtB3aYAWAAJp37OcrgNgv8guAFRusAACAbykl4I8A+PecAAIIIIAAAggggAACMhQAEPC0HQEEEJBJAPjx/1f83wbVqAm3rAAAAABJRU5ErkJggg==
 // @grant         GM_info
 // @grant         GM_addStyle
@@ -182,7 +184,7 @@ var proxyFix = false;
 				"itunes|http://www.apple.com/search/?q=%s&section=ipoditunes",
 				"amazon|http://www.amazon.com/s/?field-keywords=%s",
 				"wikipedia|http://en.wikipedia.org/w/index.php?search=%s",
-				"torrentproject|http://torrentproject.se/?t=%s",
+				"pirate bay|https://thepiratebay.se/search/%s/0/7/0",
 				"youtube|https://www.youtube.com/results?search_query=%s",
 				"google|https://www.google.com/search?q=%s"
 			];
@@ -193,16 +195,10 @@ var proxyFix = false;
 				"music|Flac,320"
 			];
 			opts.defaultTrackers = [
-				"udp://tracker.openbittorrent.com:80/",
-				"http://tracker.openbittorrent.com:80/",
-				"udp://tracker.publicbt.com:80/",
-				"http://tracker.publicbt.com:80/",
-				"udp://tracker.istole.it:6969/",
-				"udp://fr33dom.h33t.com:3310/announce",
-				"http://inferno.demonoid.com:3407/announce",
-				"udp://11.rarbg.com/announce",
-				"http://9.rarbg.com:2710/announce",
-				"http://tracker.yify-torrents.com/announce"
+				"udp://tracker.openbittorrent.com:80",
+				"udp://tracker.publicbt.com:80",
+				"udp://tracker.istole.it:80/announce",
+				"udp://tracker.ccc.de:80"
 			];
 			opts.customCss = [
 				"/* ",
@@ -687,10 +683,11 @@ var proxyFix = false;
 		if (navigator.cookieEnabled && typeof d.cookie === "string") {
 			// 2014-05-31 Added navigator.cookieEnabled test and sessionStorage
 			// test to stop any infinite reloads for non-cookie users
+			// Last check: 2015-04-11 18:30
 			if (sessionStorage.getItem(tzCl+"_SS_cookietest_3_1") !== "true") {
-				d.cookie = "wm_popundertz="+ckVal("1");
 				d.cookie = "tz="+ckVal("2");
 				d.cookie = "wgm="+ckVal("1");
+				d.cookie = "wm_popundertz="+ckVal("2");
 				sessionStorage.setItem(tzCl+"_SS_cookietest_3_1", "true");
 				location.reload();
 			}
@@ -1156,12 +1153,11 @@ var proxyFix = false;
 			"checked": tz.usc.useTrackers
 		}).appendTo(
 		$("<label/>", {
-			"text": "Use trackers",
+			"text": "Use default trackers",
 			"data": { "target-input": "#"+tzCl+"_default_trackers_textarea" },
 			"attr": {
 				"for": tzCl+"_useTrackers",
-				"title": "This adds your default trackers (and any unique to a specific torrent) to all magnet-links. "+
-					"Some like magnet-links without any trackers, this let's you do just that."
+				"title": "This adds more default trackers (and any unique to a specific torrent) to all magnet-links."
 			}
 		})).parent().appendTo(p);
 		/* Search tabs */
@@ -1868,8 +1864,6 @@ var proxyFix = false;
 			if (page === "common") {
 				// also remove common ads here once
 				els.$body.addClass("no_ads");
-				els.$body.find("iframe[src*='clkads.com']").parents("div[style]:eq(0)")
-					.addClass(adRemovedClass);
 				// removing iframes is tricky, look out for lastPass and such
 				els.$body.find("p.generic").has("iframe").addClass(adRemovedClass);
 				els.$body.find(" > div").has("a[href*='btguard.com/'] img")
@@ -1884,6 +1878,9 @@ var proxyFix = false;
 						}
 					});
 				}
+				// Treat this iframe special since it traverses up
+				els.$body.find("iframe[src*='clkads.com']").parents("div[style]:eq(0)")
+					.addClass(adRemovedClass);
 				removeDocOnclick();
 			}
 			if (page === "single") {
@@ -2150,10 +2147,11 @@ var proxyFix = false;
 			"href": "#",
 			"id": tzCl+"_copylist",
 			"class": tzCl+"_copylink",
-			"title": "Click to copy the trackerlist"+(tz.usc.useTrackers ? " - includes embedded trackers and your own "+
-				"default list" : " - this only included the embedded trackers since you have disabled the use of "+
-				"trackers in the settings"),
-			"text": "Copy "+tr+" Tracker"+getPlural(tr),
+			"title": "Click to copy "+(tz.usc.useTrackers ? "your" : "the")+" trackerlist"+
+				(tz.usc.useTrackers ? " - includes embedded trackers and your own "+
+				"default list" : " - "+(tr > 1 ? "these are":"this is")+
+				" the the embedded tracker"+getPlural(tr)+" for this torrent"),
+			"text": "Copy "+tr+" "+(tz.usc.useTrackers ? "Combined" : "Embedded")+" Tracker"+getPlural(tr),
 			on: {
 				"click": function () {
 					toggleCopyBox(1);
@@ -2291,7 +2289,7 @@ var proxyFix = false;
 				els.$copyTrackersLink = $("#"+tzCl+"_copylist");
 				els.$magnetLink = $("#"+tzCl+"_magnet_link");
 				els.$allMagnetLinks = $("a[href^='magnet:']").add(els.$magnetLink);
-				magnetUrl = getMagnetUrl(tz.page.thash, tz.page.title, tz.usc.useTrackers ? stats.allTrackers : []);
+				magnetUrl = getMagnetUrl(tz.page.thash, tz.page.title, stats.wantedTrackers);
 				els.$allMagnetLinks.each(function (index, element) {
 					$(element).attr("href", magnetUrl);
 				});

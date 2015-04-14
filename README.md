@@ -24,7 +24,7 @@ _Tested on Firefox 32+ (GreaseMonkey/Scriptish) and Google Chrome 37+ with Tampe
 ## Features
 
 * **Default trackerlist**  _Customizable_ - Magically sorted trackers, that apply to all magnet-links.
-	- You can also turn trackers off completely using the **Use trackers** toggle.
+	- Enable these by using the **Use default trackers** toggle.
 * **Direct .torrent links**  Applies to all avaliable sites listed on each 'single page'.
 * **Magnet links for Everything**  Self-explanatory.
 * **Custom Search Engines**  _Customizable_ - Appears automatically underneith the search-box, and any selected text in the title of individual torrents. For added security the referrer is removed using `data:text/html...` links.
@@ -38,7 +38,7 @@ _Tested on Firefox 32+ (GreaseMonkey/Scriptish) and Google Chrome 37+ with Tampe
 * **Highlight markers**  _Customizable_  Shows a new menu above the main search results that allows you to highlight common words in all the results, and makes it easier to find exactly what you're looking for. You can add markers for anything, even using [Regular Expressions](http://www.regular-expressions.info/javascript.html), and also specify the color of them individually.
 	- You can also turn this feature off completely using the **Highlight markers** toggle.
 * **Stats-bar**  Get all the important info right away, like seed-ratio, a Copy trackerlist button, a Magnet-link, links to the comments and the files, and the total amout of peers.
-* **Copy Trackers Button**  Copies all trackers to your clipboard (if your engine doesn't support `GM_setClipboard` it shows them instead).
+* **Copy ... Trackers Button**  Copies all trackers to your clipboard (if your engine doesn't support `GM_setClipboard` it shows them instead).
 * **Ajaxed sorting**  _On/Off_ - Applies to all search results, uses `history.pushState`.
 	- You can also turn this off using the **Ajaxed sorting** toggle.
 * **Exclude filter**  _Customizable_ - Remove unwanted torrens by keywords or `RegExp`.
@@ -76,19 +76,20 @@ _All these settings are accessed by clicking 'TzAio' at the top of each page, an
 
 ## Applies to these sites
 
-* [http(s)://torrentz.eu/*](https://torrentz.eu/)
-* [http(s)://torrentz.ph/*](https://torrentz.ph/)
-* [http(s)://torrentz.li/*](https://torrentz.li/)
-* [http(s)://torrentz.com/*](https://torrentz.com/)
-* [http(s)://torrentz.me/*](https://torrentz.me/)
-* [http(s)://torrentz.in/*](https://torrentz.in/)
-* [http(s)://torrentz.hk/*](https://torrentz.hk/)
-* [http(s)://torrentz.ch/*](https://torrentz.ch/)
-* [http(s)://torrents.de/*](https://torrents.de/)
-* [http(s)://tz.ai/*](https://tz.ai/)
-* [http://bestdownload.eu/*](http://bestdownload.eu/)
-* [http://torrentz-proxy.com/*](http://torrentz-proxy.com/)
-* [http(s)://torrentz.filesoup.com/*](http://torrentz.filesoup.com/)
+* [http\*://torrentz.eu/\*](https://torrentz.eu/)
+* [http\*://torrentz.ph/\*](https://torrentz.ph/)
+* [http\*://torrentz.li/\*](https://torrentz.li/)
+* [http\*://torrentz.com/\*](https://torrentz.com/)
+* [http\*://torrentz.me/\*](https://torrentz.me/)
+* [http\*://torrentz.in/\*](https://torrentz.in/)
+* [http\*://torrentz.hk/\*](https://torrentz.hk/)
+* [http\*://torrentz.ch/\*](https://torrentz.ch/)
+* [http\*://torrents.de/\*](https://torrents.de/)
+* [http\*://tz.ai/\*](https://tz.ai/)
+* [http://bestdownload.eu/\*](http://bestdownload.eu/)
+* [http\*://torrentsmirror.com/\*](https://torrentsmirror.com/)
+* [http://torrentz-proxy.com/\*](http://torrentz-proxy.com/)
+* [http(s)://torrentz.filesoup.com/\*](http://torrentz.filesoup.com/)
 
 __Note that not all of these work, some redirect to _torrentz.eu_ and some to _torrentz-proxy.com_, but it doesn't hurt to have them all apply still.__
 

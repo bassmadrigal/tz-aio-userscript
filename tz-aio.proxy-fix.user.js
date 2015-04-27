@@ -526,9 +526,9 @@ var proxyFix = true;
 				slashSplit = href.replace("fastpiratebay.eu/","").split("/");
 				directHref = slashSplit && slashSplit.length >= 5 ? "http://torrents."+slashSplit[2]+
 					"/"+slashSplit[4]+"/"+titleEnc+"."+slashSplit[4]+".TPB.torrent" : null;
-			} else if (is("yts.re/movie/")) {
-				// last checked 2014-11-13
-				directHref = "https://yts.re/download/start/"+HASH+".torrent";
+			} else if (is("yts.to/movie/")) {
+				// last checked 2015-04-27
+				directHref = "https://yts.to/torrent/download/"+HASH+".torrent";
 			} else if (is("torrentcrazy.com/torrent/")) {
 				// last checked 2013-06-02
 				// www.torrentcrazy.com/torrent/8487590/title.of.torrent

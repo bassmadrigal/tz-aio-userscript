@@ -89,7 +89,7 @@ _All these settings are accessed by clicking 'TzAio' at the top of each page, an
 * [http://bestdownload.eu/\*](http://bestdownload.eu/)
 * [http\*://torrentsmirror.com/\*](https://torrentsmirror.com/)
 * [http://torrentz-proxy.com/\*](http://torrentz-proxy.com/)
-* [http(s)://torrentz.filesoup.com/\*](http://torrentz.filesoup.com/)
+* [http\*://torrentz.filesoup.com/\*](http://torrentz.filesoup.com/)
 
 __Note that not all of these work, some redirect to _torrentz.eu_ and some to _torrentz-proxy.com_, but it doesn't hurt to have them all apply still.__
 

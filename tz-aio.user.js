@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name          Torrentz All-in-One
 // @description   Does everything you wish Torrentz.eu could do!
-// @version       2.9.0
-// @date          2015-04-14
+// @version       2.9.1
+// @date          2015-05-04
 // @author        elundmark
 // @contact       mail@elundmark.se
 // @license       MIT; http://opensource.org/licenses/MIT
@@ -47,7 +47,7 @@
 // @require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js
 // @require       https://cdn.jsdelivr.net/jquery.spectrum/1.3.3/spectrum.js
 // @resource css1 https://cdn.jsdelivr.net/jquery.spectrum/1.3.3/spectrum.css
-// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-9-0-0
+// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-9-1-0
 // @icon          data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABNVBMVEUAAAAlSm8lSnAlS3AmS3AmTHImTHMmTXQnTnYnT3coTHEoUXkpUnsqVH4qVYArT3MrV4IsWYUtWoguXIovXo0vX44wYJAwYZIxVHcxYpQxY5UyZJYyZZcyZZgzZpk0Z5k1Z5k2aJo3WXs3aZo8bJ09Xn8+bp5CcaBFZYRHdaJJdqNNeaVPbYtQe6dSfahVf6lYdJFbhKxchK1hiK9iibBjfZhnjLJvh6Bylbhzlrh6m7x8kqh8nb2KnrGNqcWRrMeYqbuYssuas8ymtcSovdOqv9SvwtawxNezv8y2yNq5ytu+ydTD0eDJ0tvJ1uPP2ubT2uLZ4uvc4efe5u7f5+7i6fDl6e3p7vPq7fHq7/Ts8PXu8vbw8vTx9Pf19vj2+Pr4+fr4+fv6+/z8/Pz8/P39/f3///871JlNAAAAAXRSTlMAQObYZgAAAXFJREFUeNrt20dPw0AQBeBs6DX0niGhhN57Db333kJn//9PYOdgCQlYEEJ5Ab13mhnb8nfwYSRrQyGBxr3fQiMEEEAAAW8BkrZ8DJA0hgACCCCAAAIIIIAAAgjwAuy346cvBRdRgC0wIHYFBsxaLGAghQWMnlskoG/12f4c4H1CvIknuoYn59dPrAYBCO4igAAA4H0IIIAAAggggAACCPh3AG+MIQALWDalqI9w/NHNdguLoiBAf8qNzlryGgQD6Dh1k9verBrBAFr3dTJhKgUE2NTBgikTEGBR++3s4igIMK3tUV1+o2AAIw+uu+nMqRUMoOfaNU9j4SrBABLH2syZcsEA4ntab5gSAQHWtDyIFDSBAEmtLtpz6wUDmHpxxf1guFowgKE7LWZMhWAA3ZfBCoABtB3aYAWAAJp37OcrgNgv8guAFRusAACAbykl4I8A+PecAAIIIIAAAggggAACMhQAEPC0HQEEEJBJAPjx/1f83wbVqAm3rAAAAABJRU5ErkJggg==
 // @grant         GM_info
 // @grant         GM_addStyle
@@ -526,9 +526,9 @@ var proxyFix = false;
 				slashSplit = href.replace("fastpiratebay.eu/","").split("/");
 				directHref = slashSplit && slashSplit.length >= 5 ? "http://torrents."+slashSplit[2]+
 					"/"+slashSplit[4]+"/"+titleEnc+"."+slashSplit[4]+".TPB.torrent" : null;
-			} else if (is("yts.to/movie/")) {
-				// last checked 2015-04-27
-				directHref = "https://yts.to/torrent/download/"+HASH+".torrent";
+			} else if (is("yts.re/movie/")) {
+				// last checked 2014-11-13
+				directHref = "https://yts.re/download/start/"+HASH+".torrent";
 			} else if (is("torrentcrazy.com/torrent/")) {
 				// last checked 2013-06-02
 				// www.torrentcrazy.com/torrent/8487590/title.of.torrent
@@ -1539,10 +1539,10 @@ var proxyFix = false;
 				"cols": 40,
 				"rows": 10
 			}
-		}).val(arr.join("")).appendTo($("<div/>", {
+		}).appendTo($("<div/>", {
 			"id": tzCl+"_copy_tr_textarea",
 			"class": tzCl+"_copy_textarea"
-		})).parent().appendTo(els.$body);
+		})).parent().data("copy_trackers", encc(fixWindowsLines(arr.join("")+"\n"))).appendTo(els.$body);
 		cache.copyTrackersLinkHeight = els.$copyTrackersLink.outerHeight();
 		els.$copyTextArea = $("#"+tzCl+"_copy_tr_textarea");
 	}
@@ -1718,27 +1718,30 @@ var proxyFix = false;
 			return sendLog("Exec: "+(Date.now()-execStartMS)+"ms (not inc ajax)");
 		}
 	}
+	function fixWindowsLines (s) {
+		if (isWindowsOS()) {
+			// TamperMonkey (on Linux and Windows) < v3.4.3525 seems to remove \r ([CR])
+			// chars, a fix for this has been released in their latest Beta
+			// http://tampermonkey.net/changelog.php?version=3.4.3525&ext=gcal
+			return s.replace(/\r?\n/g,"\r\n");
+		} else {
+			return s;
+		}
+	}
 	function toggleCopyBox (cmd) {
 		var linkHeight = cache.copyTrackersLinkHeight,
 			isVisible,
 			copyThis;
 		if (els.$copyTextArea && els.$copyTextArea.length) {
-			if (typeof GM_setClipboard === "function" && cmd !== 2) {
+			if (false && typeof GM_setClipboard === "function" && cmd !== 2) {
 				// Fix carriage returns before copying, and only for Windows users;
 				// I noticed that certain clients don't like \r\n in the text
 				// when on a Linux platform, so try and check for OS first
-				copyThis = els.$copyTextArea.find("textarea").val();
+				copyThis = dencc(els.$copyTextArea.data("copy_trackers"));
 				// note! jQuery strips out all \r in .val()
-				if (isWindowsOS()) {
-					// TamperMonkey (on Linux and Windows) < v3.4.3525 seems to remove \r ([CR])
-					// chars, a fix for this has been released in their latest Beta
-					// http://tampermonkey.net/changelog.php?version=3.4.3525&ext=gcal
-					copyThis = copyThis.replace(/\r?\n/g,"\r\n");
-				}
 				GM_setClipboard(copyThis);
 				if (els.$copyTrackersLink && els.$copyTrackersLink.length) {
-					els.$copyTrackersLink.text(els.$copyTrackersLink.text()
-						.replace("Copy ","Copied "));
+					els.$copyTrackersLink.text(els.$copyTrackersLink.text().replace("Copy ","Copied "));
 				}
 			} else if (els.$copyTrackersLink && els.$copyTrackersLink.length) {
 				// single torrent
@@ -1747,10 +1750,18 @@ var proxyFix = false;
 					els.$copyTextArea.css({
 						top: (els.$copyTrackersLink.offset().top+linkHeight)+"px",
 						left: (els.$copyTrackersLink.offset().left)+"px"
-					}).stop().show(250).find("textarea")[0].select();
+					}).stop().show(250, function () {
+						var el = this.querySelector("textarea");
+						if (!el.value) {
+							el.value = dencc(els.$copyTextArea.data("copy_trackers"));
+						}
+						el.select();
+					});
 				} else if ((isVisible && cmd === 0) || cmd === 2) {
 					// Hide it
-					els.$copyTextArea.stop().hide(200).find("textarea")[0].blur();
+					els.$copyTextArea.stop().hide(200, function () {
+						this.querySelector("textarea").blur();
+					});
 				}
 			}
 		}

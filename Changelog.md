@@ -1,9 +1,15 @@
 # Changelog
 
+### [v2.9.1](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.1) (2015-05-04)
+
+* Edited direct link for [yts.to](https://yts.to/).
+* Fixed whitespace issue for the legacy textarea for copying trackers.
+* Made the trackers > clipboard process less prone to newline errors.
+
 ### [v2.9.0](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.0) (2015-04-14)
 
 * Fixed CSS for new wider layout.
-* New domain mirror: [torrentsmirror.com](https://www.torrentsmirror.com/)
+* New domain mirror: [torrentsmirror.com](https://www.torrentsmirror.com/).
 * Updated the browser cookie to block new popup ads. `wm_popundertz=2`
 * Reduced the default trackerlist to the top 4 most useful and valid ones.
 * Changed the way copying trackers works, less confusing than before I hope.

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 PASSM="$HOME/.ramdisk/.password_manager"
-if [[ "$PWD" =~ TzAiOv2$ ]] && [[ -f "$PASSM" ]]; then
+if [[ "$PWD" =~ TzAiOv2$ ]] && [[ -f "$PASSM" ]]
+	then
 	rsyncWeb () {
 		local SSHHOME=$(bash "$PASSM" "binero-ssh-path")
 		local SSHUSER=$(bash "$PASSM" "binero-ssh-user")
@@ -24,11 +25,13 @@ if [[ "$PWD" =~ TzAiOv2$ ]] && [[ -f "$PASSM" ]]; then
 		read gitversionnumber
 		echo -n "Enter a description for the commit: "
 		read gitcommitmsg
-		if [[ "$gitversionnumber" =~ [0-9.]+ ]] ; then
+		if [[ "$gitversionnumber" =~ [0-9.]+ ]]
+			then
 			gitcommitmsg="v$gitversionnumber $gitcommitmsg"
 		fi
 		read -p "Is '""$gitcommitmsg""' correct? (y/n): " CONT
-		if [[ $? -eq 0 ]] && [[ "$CONT" == "y" || ! $CONT || "$CONT" = "" ]] ; then
+		if [[ $? -eq 0 ]] && [[ "$CONT" = "y" ]] || [[ -z $CONT ]] || [[ "$CONT" = "" ]]
+			then
 			echo "\$ git add . --all; git commit -am ""$gitcommitmsg""; git push origin master"
 			git add --all .
 			git commit -am "$gitcommitmsg"
@@ -43,25 +46,29 @@ if [[ "$PWD" =~ TzAiOv2$ ]] && [[ -f "$PASSM" ]]; then
 		fi
 	}
 	reminder=$'\n'"Done."$'\n'"Did you remember to update all version info?"$'\n'
-	if [[ "$1" ]] && [[ ! "$1" =~ ^all$ ]] ; then
-		for str_arg in $* ; do
-			if [[ $str_arg =~ sass|s?css ]] ; then
-				sassCompile
-			fi
-			if [[ "$str_arg" = "git" ]] ; then
-				gitCommit
-			fi
-			if [[ "$str_arg" = "sftp" ]] || [[ "$str_arg" = "upload" ]] ; then
-				rsyncWeb
-			fi
-		done
-		echo "$reminder" 1>&2
-		sleep 2
-		exit 0
-	elif [[ "$1" = "all" ]] || [[ "$1" = "publish" ]] ; then
+	if [[ $# -eq 1 ]] && ( [[ "$1" = "all" ]] || [[ "$1" = "publish" ]] )
+		then
 		sassCompile
 		gitCommit
 		rsyncWeb
+		echo "$reminder" 1>&2
+		sleep 2
+		exit 0
+	elif [[ $# -ge 1 ]]
+		then
+		for str_arg in "$@"
+		do
+			if [[ "$str_arg" = "sass" ]] || [[ "$str_arg" = "scss" ]] || [[ "$str_arg" = "css" ]]
+				then
+				sassCompile
+			elif [[ "$str_arg" = "git" ]] || [[ "$str_arg" = "commit" ]]
+				then
+				gitCommit
+			elif [[ "$str_arg" = "sftp" ]] || [[ "$str_arg" = "upload" ]]
+				then
+				rsyncWeb
+			fi
+		done
 		echo "$reminder" 1>&2
 		sleep 2
 		exit 0

@@ -61,7 +61,7 @@
 .tz_aio_b.tz_aio_v2 .tz_aio_copy_textarea textarea:focus { outline: none; }
 .tz_aio_b.tz_aio_v2 .tz_aio_copy_textarea, .tz_aio_b.tz_aio_v2 .tz_aio_copy_textarea textarea { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 .tz_aio_b.tz_aio_v2 .tz_aio_copy_textarea { z-index: 11; position: absolute; top: 0; left: 0; display: none; padding: 10px; width: 500px; height: 280px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; border-top-right-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; border-bottom-right-radius: 3px; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-left-radius: 3px; -webkit-box-shadow: 0 5px 15px #336699; -moz-box-shadow: 0 5px 15px #336699; box-shadow: 0 5px 15px #336699; background: rgba(255, 255, 255, 0.8); }
-.tz_aio_b.tz_aio_v2 .tz_aio_copy_textarea textarea { border: 0; white-space: nowrap; overflow: auto; padding: 0; color: #333333; background-color: white; font-size: 13px; line-height: 1.2; width: 100%; height: 100%; }
+.tz_aio_b.tz_aio_v2 .tz_aio_copy_textarea textarea { border: 0; white-space: pre; overflow: auto; padding: 0; color: #333333; background-color: white; font-size: 13px; line-height: 1.2; width: 100%; height: 100%; }
 .tz_aio_b.tz_aio_v2 .download h2 { position: relative; }
 .tz_aio_b.tz_aio_v2 .tz_aio_searchtabs { display: block; float: none; height: 1px; max-height: 1px; background: transparent; overflow: visible; position: relative; top: -1px; z-index: 2; padding: 0 6px 0 0; margin: 0 0 -10px; border: 0 none; }
 .tz_aio_b.tz_aio_v2 .tz_aio_searchtabs:empty { overflow: hidden; opacity: 0; }

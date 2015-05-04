@@ -355,7 +355,7 @@ $blinkto:   0.0;
 		background: $COPYAREABG;
 		textarea {
 			border: 0;
-			white-space: nowrap;
+			white-space: pre;
 			overflow: auto;
 			padding: 0;
 			color: $DARKGRAY;

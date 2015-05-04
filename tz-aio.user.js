@@ -120,7 +120,7 @@ if (!String.prototype.trim) {
 var proxyFix = false;
 
 (function ($, __, loadStartMS) {
-	if (proxyFix && $(".top:eq(0) a:contains('iTorrentz')").length === 0 && $(".top:eq(0) a:contains('myTorrentz')").length === 0) {
+	if (proxyFix && !$(".top:eq(0) a:contains('Profile')").length && !$(".top:eq(0) a:contains('My')").length  && !$("input#thesearchbox").length) {
 		return;
 	}
 	if (typeof __ !== "function" || typeof sessionStorage !== "object"

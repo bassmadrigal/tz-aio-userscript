@@ -1,5 +1,9 @@
 # Changelog
 
+### [v2.9.2](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.2) (2015-05-04)
+
+* Hotfix for clipboard conditional.
+
 ### [v2.9.1](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.1) (2015-05-04)
 
 * Edited direct link for [yts.to](https://yts.to/).

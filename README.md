@@ -110,13 +110,15 @@ Email and info: [https://github.com/elundmark](https://github.com/elundmark)
 
 ## Included plugins
 
-The following resources are fetched externally by this userscript.
+The following files are fetched externally by this userscript using `@require|resource`:
 
-* `@require		https://cdnjs.cloudflare.com/ajax/libs/jquery/2.x.x/jquery.min.js`
-* `@require		https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.x.x/underscore-min.js`
-* `@require		https://cdn.jsdelivr.net/jquery.spectrum/1.x.x/spectrum.js`
-* `@resource	https://cdn.jsdelivr.net/jquery.spectrum/1.x.x/spectrum.css`
-* `@resource	http://elundmark.se/_files/js/tz-aio/tz-aio-style-x.css`
+* `@require       https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js`
+* `@require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js`
+* `@require       https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.3.3/spectrum.js`
+* `@resource css1 https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.3.3/spectrum.css`
+* `@resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-9-4-0`
+
+**\*)** Versions stated may have changed since this was written.
 
 ## Licences for included software
 

@@ -1,5 +1,9 @@
 # Changelog
 
+### [v2.9.4](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.4) (2015-05-05)
+
+* Issue [#17](https://github.com/elundmark/tz-aio-userscript/issues/17) SSL bug finally fixed: Changed `@require` & `@resource` for [spectrum](https://github.com/bgrins/spectrum) to [cdnjs](https://cdnjs.com/), since using [jsdelivr.net](http://www.jsdelivr.com/) produced errors when installing \(see issue [#17](https://github.com/elundmark/tz-aio-userscript/issues/17)\).
+
 ### [v2.9.3](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.3) (2015-05-05)
 
 * Issue [#17](https://github.com/elundmark/tz-aio-userscript/issues/17): This fixes an old and crucial bug in the proxy-fix version that stopped it from working since version `2.9.0`.

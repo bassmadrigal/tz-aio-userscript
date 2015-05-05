@@ -16,7 +16,7 @@ if [[ "$PWD" =~ TzAiOv2$ ]] && [[ -f "$PASSM" ]]
 		echo "\$ compass compile ""$WORKDIR/source"
 		cd "$WORKDIR/source" && compass compile --force "$PWD"
 		cd "$WORKDIR"
-		# Now hosted by jsdelivr.net
+		# Now hosted by cdnjs.cloudflare
 		# cat "$PWD/source/css/spectrum.css" "$PWD/tz-aio-style-2.css" > "$PWD/tz-aio-style-2.css.bak"
 		# rm "$PWD/tz-aio-style-2.css"; mv -f "$PWD/tz-aio-style-2.css.bak" "$PWD/tz-aio-style-2.css"
 	}

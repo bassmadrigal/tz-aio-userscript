@@ -1,5 +1,10 @@
 # Changelog
 
+### [v2.9.5](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.5) (2015-05-08)
+
+* Fixed related variables for the new name of links to `/my`.
+	- The new name is `myTorrentz`, but not all domains have new name so the old name `my` still applies.
+
 ### [v2.9.4](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.4) (2015-05-05)
 
 * Issue [#17](https://github.com/elundmark/tz-aio-userscript/issues/17) SSL bug finally fixed: Changed `@require` & `@resource` for [spectrum](https://github.com/bgrins/spectrum) to [cdnjs](https://cdnjs.com/), since using [jsdelivr.net](http://www.jsdelivr.com/) produced errors when installing \(see issue [#17](https://github.com/elundmark/tz-aio-userscript/issues/17)\).
@@ -506,14 +511,14 @@
 
 * Total rewrite, most noticable change is that it now uses GM supported built-in storage, which means all settings you save, applies to all domains. As there are more new features than changes, these are some of them. See all [here](https://github.com/elundmark/tz-aio-userscript/blob/master/README.md).
 * __NEW__ Global settings panel with these options:
-    * Force SSL on all domains _(applies to all mirrors, unlike before. Old users settings are imported automatically)_.
-    * Ad removal.
-    * Ajaxed sorting of results.
-    * Colorful results.
-    * Saved custom trackers with intelligent sorting (now fixed).
-    * Add your own Select-to-search search-engines links.
-    * Linked comment-links.
-    * Optional no-referer url for all outgoing links.
+	* Force SSL on all domains _(applies to all mirrors, unlike before. Old users settings are imported automatically)_.
+	* Ad removal.
+	* Ajaxed sorting of results.
+	* Colorful results.
+	* Saved custom trackers with intelligent sorting (now fixed).
+	* Add your own Select-to-search search-engines links.
+	* Linked comment-links.
+	* Optional no-referer url for all outgoing links.
 * Updated `jQuery` to __1.8.3__
 * Updated `underScore.js` to __1.4.4__
 * `@require` and `@resource` has replaced all bulky embedded code.
@@ -527,15 +532,15 @@
 
 * Removed javascript click from search results, too many annoyances. Added the .li domain. Other small optimizations.
 * Current domain list:
-    * [http(s)://torrentz.ph/*](https://torrentz.ph/)
-    * [http(s)://torrentz.eu/*](https://torrentz.eu/)
-    * [http(s)://torrentz.li/*](https://torrentz.li/)
-    * [http(s)://torrentz.com/*](https://torrentz.com/)
-    * [http(s)://torrentz.me/*](https://torrentz.me/)
-    * [http(s)://torrentz.in/*](https://torrentz.in/)
-    * [http(s)://torrentz.hk/*](https://torrentz.hk/)
-    * [http(s)://torrents.de/*](https://torrents.de/)
-    * [http(s)://tz.ai/*](https://tz.ai/)
+	* [http(s)://torrentz.ph/*](https://torrentz.ph/)
+	* [http(s)://torrentz.eu/*](https://torrentz.eu/)
+	* [http(s)://torrentz.li/*](https://torrentz.li/)
+	* [http(s)://torrentz.com/*](https://torrentz.com/)
+	* [http(s)://torrentz.me/*](https://torrentz.me/)
+	* [http(s)://torrentz.in/*](https://torrentz.in/)
+	* [http(s)://torrentz.hk/*](https://torrentz.hk/)
+	* [http(s)://torrents.de/*](https://torrents.de/)
+	* [http(s)://tz.ai/*](https://tz.ai/)
 
 ### [v2.0.22](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.0.22) (2013-01-18)
 

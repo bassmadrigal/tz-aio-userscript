@@ -31,11 +31,11 @@
 * For automatic updates, `Require Secure Updates` or an equivalent option must be disabled in your userscript-engine, since my server currently doesn't support SSL (`https:`).
 * There's an alternative [proxy-fix](https://github.com/elundmark/tz-aio-userscript/blob/master/tz-aio.proxy-fix.user.js) version of this script if you need it to apply to more domains.
 * Screenshots
-    1. [tzaio_settings.jpg](http://elundmark.se/_files/js/tz-aio/screenshots/tzaio_settings.jpg)
-    2. [tzaio_search_results.jpg](http://elundmark.se/_files/js/tz-aio/screenshots/tzaio_search_results.jpg)
-    3. [tzaio_single_page.jpg](http://elundmark.se/_files/js/tz-aio/screenshots/tzaio_single_page.jpg)
-    4. [tzaio_i_page.jpg](http://elundmark.se/_files/js/tz-aio/screenshots/tzaio_i_page.jpg)
-    5. [tzaio_episode_links.jpg](http://elundmark.se/_files/js/tz-aio/screenshots/tzaio_episode_links.jpg)
+    1. [tzaio\_settings.jpg](http://elundmark.se/_files/js/tz-aio/screenshots/tzaio_settings.jpg)
+    2. [tzaio\_search\_results.jpg](http://elundmark.se/_files/js/tz-aio/screenshots/tzaio_search_results.jpg)
+    3. [tzaio\_single\_page.jpg](http://elundmark.se/_files/js/tz-aio/screenshots/tzaio_single_page.jpg)
+    4. [tzaio\_i\_page.jpg](http://elundmark.se/_files/js/tz-aio/screenshots/tzaio_i_page.jpg)
+    5. [tzaio\_episode\_links.jpg](http://elundmark.se/_files/js/tz-aio/screenshots/tzaio_episode_links.jpg)
 
 # Legality
 

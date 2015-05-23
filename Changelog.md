@@ -1,5 +1,14 @@
 # Changelog
 
+### [v2.9.6](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.6) (2015-05-22)
+
+* Removed redundant option to force `https:` (`forceHTTPS`) - all domains are now forced as `https:`.
+	- All `@include` rules have been edited: `http*:// -> https://`
+* Proxy-fix version specific code was improved slightly.
+* Removed filesoup domain references, it is now being redirected.
+* Edited / updated domains for thepiratebay.
+* Removed direct torrent file links to thepiratebay (if the come back I'll activate them again).
+
 ### [v2.9.5](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.5) (2015-05-08)
 
 * Fixed related variables for the new name of links to `/my`.
@@ -12,7 +21,7 @@
 ### [v2.9.3](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.3) (2015-05-05)
 
 * Issue [#17](https://github.com/elundmark/tz-aio-userscript/issues/17): This fixes an old and crucial bug in the proxy-fix version that stopped it from working since version `2.9.0`.
-  - This was caused by me forgetting that the site morphed `iTorrentz` into `My` a while back, and I had that hardcoded in the proxy version.
+	- This was caused by me forgetting that the site morphed `iTorrentz` into `My` a while back, and I had that hardcoded in the proxy version.
 * Doesn't affect the previous standard version (`2.9.2`), so most users haven't had this problem, but having this bug fixed validates another bump in the version number.
 
 ### [v2.9.2](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.2) (2015-05-04)

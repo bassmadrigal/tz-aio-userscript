@@ -638,7 +638,7 @@ $blinkto:   0.0;
 			line-height: 1;
 			min-width: 100px;
 			text-align: center;
-			&:nth-of-type(6) {
+			&[for='tz_aio_searchHighlight'] {
 				clear: both;
 			}
 			input[type='checkbox'] {

@@ -32,7 +32,6 @@ _Tested on Firefox 32+ (GreaseMonkey/Scriptish) and Google Chrome 37+ with Tampe
 * **Custom CSS Editor** _Customizable_ - Added by demand, edit away!
 	- You can also turn this off using the **Custom CSS** toggle.
 * **Ad removal**  _On/Off_ - Wouldn't be a UserScript without this. Also gets rid of the "click popup ads". As new ads are added, this script will be updated.
-* **Force HTTPS**  _On/Off_ - Off by default, but forces SSL (`https://`) if enabled.
 * **TV Episode Links**  Helps you search for next/prev episode/season, click the links in the filter-bar or use `SHIFT+[arrowkeys]` when available by searching for the common patters _sNNeNN_ or _2013 01 01_.
 * **Group results by category**  _On/Off_ - Off by default, this feature will sort all results by category, might not suit everyone, but it helps it you're looking through lots of pages.
 * **Highlight markers**  _Customizable_  Shows a new menu above the main search results that allows you to highlight common words in all the results, and makes it easier to find exactly what you're looking for. You can add markers for anything, even using [Regular Expressions](http://www.regular-expressions.info/javascript.html), and also specify the color of them individually.
@@ -76,22 +75,21 @@ _All these settings are accessed by clicking 'TzAio' at the top of each page, an
 
 ## Applies to these sites
 
-* [http\*://torrentz.eu/\*](https://torrentz.eu/)
-* [http\*://torrentz.ph/\*](https://torrentz.ph/)
-* [http\*://torrentz.li/\*](https://torrentz.li/)
-* [http\*://torrentz.com/\*](https://torrentz.com/)
-* [http\*://torrentz.me/\*](https://torrentz.me/)
-* [http\*://torrentz.in/\*](https://torrentz.in/)
-* [http\*://torrentz.hk/\*](https://torrentz.hk/)
-* [http\*://torrentz.ch/\*](https://torrentz.ch/)
-* [http\*://torrents.de/\*](https://torrents.de/)
-* [http\*://tz.ai/\*](https://tz.ai/)
-* [http://bestdownload.eu/\*](http://bestdownload.eu/)
-* [http\*://torrentsmirror.com/\*](https://torrentsmirror.com/)
-* [http://torrentz-proxy.com/\*](http://torrentz-proxy.com/)
-* [http\*://torrentz.filesoup.com/\*](http://torrentz.filesoup.com/)
+* [https://torrentz.eu/\*](https://torrentz.eu/)
+* [https://torrentz.ph/\*](https://torrentz.ph/)
+* [https://torrentz.li/\*](https://torrentz.li/)
+* [https://torrentz.com/\*](https://torrentz.com/)
+* [https://torrentz.me/\*](https://torrentz.me/)
+* [https://torrentz.in/\*](https://torrentz.in/)
+* [https://torrentz.hk/\*](https://torrentz.hk/)
+* [https://torrentz.ch/\*](https://torrentz.ch/)
+* [https://torrents.de/\*](https://torrents.de/)
+* [https://tz.ai/\*](https://tz.ai/)
+* [https://bestdownload.eu/\*](https://bestdownload.eu/)
+* [https://torrentsmirror.com/\*](https://torrentsmirror.com/)
+* [https://torrentz-proxy.com/\*](https://torrentz-proxy.com/)
 
-__Note that not all of these work, some redirect to _torrentz.eu_ and some to _torrentz-proxy.com_, but it doesn't hurt to have them all apply still.__
+__Note that not all of these work, some redirect to _torrentz.eu_, but it doesn't hurt to have them all apply.__
 
 ## Known Issues
 
@@ -100,7 +98,7 @@ __Note that not all of these work, some redirect to _torrentz.eu_ and some to _t
 
 ## Using a proxy?
 
-If you can't use **torrentz-proxy.com** or **torrentz.filesoup.com**, you can also try installing [this special version](https://github.com/elundmark/tz-aio-userscript/raw/master/tz-aio.proxy-fix.user.js), which runs on _every_ page, thus making it work again. But It's not *100%* guarateed, it depends on the proxy provider, and seeing there's like 100.000.000 of them I'm not gonna even try.
+If you can't use **torrentz-proxy.com** you can also try installing [this special version](https://github.com/elundmark/tz-aio-userscript/raw/master/tz-aio.proxy-fix.user.js), which runs on _every_ page, thus making it work again. But It's not *100%* guarateed, it depends on the proxy provider, and seeing there's like 100.000.000 of them I'm not gonna even try.
 
 ## Help me, to help us
 

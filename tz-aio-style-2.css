@@ -107,7 +107,7 @@
 .tz_aio_b.tz_aio_v2 .tz_aio_settings_form input[type='text'] { font-family: monospace; margin-bottom: 0; background-color: white; }
 .tz_aio_b.tz_aio_v2 .tz_aio_settings_form textarea { height: 195px; border: 1px solid #bcc6cf; padding: 10px; background-color: white; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; }
 .tz_aio_b.tz_aio_v2 .tz_aio_settings_form p label { float: left; position: relative; overflow: hidden; display: inline-block; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; background-color: #dddddd; background: repeating-linear-gradient(-45deg, #dddddd, #dddddd 10px, #f1f2f3 10px, #f1f2f3 20px); -webkit-box-shadow: inset 1px 1px 1px #aaaaaa, inset -1px -1px 1px #aaaaaa; -moz-box-shadow: inset 1px 1px 1px #aaaaaa, inset -1px -1px 1px #aaaaaa; box-shadow: inset 1px 1px 1px #aaaaaa, inset -1px -1px 1px #aaaaaa; padding: 7px 10px 9px; margin: 0 10px 10px 0; color: #333333; line-height: 1; min-width: 100px; text-align: center; }
-.tz_aio_b.tz_aio_v2 .tz_aio_settings_form p label:nth-of-type(6) { clear: both; }
+.tz_aio_b.tz_aio_v2 .tz_aio_settings_form p label[for='tz_aio_searchHighlight'] { clear: both; }
 .tz_aio_b.tz_aio_v2 .tz_aio_settings_form p label input[type='checkbox'] { position: absolute; top: 0px; left: -100px; }
 .tz_aio_b.tz_aio_v2 .tz_aio_settings_form p label:hover { color: #111; }
 .tz_aio_b.tz_aio_v2 .tz_aio_settings_form p label.tz_aio_boolean_opt { background: repeating-linear-gradient(45deg, #dddddd, #dddddd 10px, #f1f2f3 10px, #f1f2f3 20px); }

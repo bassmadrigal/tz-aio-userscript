@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name          Torrentz All-in-One Proxy Fix
 // @description   Does everything you wish Torrentz.eu could do! (This script does not auto update!)
-// @version       2.9.5
-// @date          2015-05-08
+// @version       2.9.6
+// @date          2015-05-22
 // @author        elundmark
 // @contact       mail@elundmark.se
 // @license       MIT; http://opensource.org/licenses/MIT
@@ -19,7 +19,7 @@
 // @require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js
 // @require       https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.3.3/spectrum.js
 // @resource css1 https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.3.3/spectrum.css
-// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-9-5-0
+// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-9-6-0
 // @icon          data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABNVBMVEUAAAAlSm8lSnAlS3AmS3AmTHImTHMmTXQnTnYnT3coTHEoUXkpUnsqVH4qVYArT3MrV4IsWYUtWoguXIovXo0vX44wYJAwYZIxVHcxYpQxY5UyZJYyZZcyZZgzZpk0Z5k1Z5k2aJo3WXs3aZo8bJ09Xn8+bp5CcaBFZYRHdaJJdqNNeaVPbYtQe6dSfahVf6lYdJFbhKxchK1hiK9iibBjfZhnjLJvh6Bylbhzlrh6m7x8kqh8nb2KnrGNqcWRrMeYqbuYssuas8ymtcSovdOqv9SvwtawxNezv8y2yNq5ytu+ydTD0eDJ0tvJ1uPP2ubT2uLZ4uvc4efe5u7f5+7i6fDl6e3p7vPq7fHq7/Ts8PXu8vbw8vTx9Pf19vj2+Pr4+fr4+fv6+/z8/Pz8/P39/f3///871JlNAAAAAXRSTlMAQObYZgAAAXFJREFUeNrt20dPw0AQBeBs6DX0niGhhN57Db333kJn//9PYOdgCQlYEEJ5Ab13mhnb8nfwYSRrQyGBxr3fQiMEEEAAAW8BkrZ8DJA0hgACCCCAAAIIIIAAAgjwAuy346cvBRdRgC0wIHYFBsxaLGAghQWMnlskoG/12f4c4H1CvIknuoYn59dPrAYBCO4igAAA4H0IIIAAAggggAACCPh3AG+MIQALWDalqI9w/NHNdguLoiBAf8qNzlryGgQD6Dh1k9verBrBAFr3dTJhKgUE2NTBgikTEGBR++3s4igIMK3tUV1+o2AAIw+uu+nMqRUMoOfaNU9j4SrBABLH2syZcsEA4ntab5gSAQHWtDyIFDSBAEmtLtpz6wUDmHpxxf1guFowgKE7LWZMhWAA3ZfBCoABtB3aYAWAAJp37OcrgNgv8guAFRusAACAbykl4I8A+PecAAIIIIAAAggggAACMhQAEPC0HQEEEJBJAPjx/1f83wbVqAm3rAAAAABJRU5ErkJggg==
 // @grant         GM_info
 // @grant         GM_addStyle
@@ -100,9 +100,6 @@
 
 
 
-
-
-
 "use strict";
 
 if (!Date.now) {
@@ -115,18 +112,10 @@ if (!String.prototype.trim) {
 		return this.replace(/^\s+|\s+$/gm, "");
 	};
 }
-// Setting this true will prevent forceSSL from applying ever:
-// https://github.com/elundmark/tz-aio-userscript/blob/master/tz-aio.proxy-fix.user.js
-var proxyFix = true;
 
 (function ($, __, loadStartMS) {
-	if (proxyFix
-		&& !$(".top:eq(0) a:contains('Profile')").length
-		&& !$(".top:eq(0) a:contains('myTorrentz')").length
-		&& !$(".top:eq(0) a:contains('My')").length
-		&& !$("input#thesearchbox").length) {
-		return;
-	}
+	if (!$("input#thesearchbox, .top:eq(0) a:contains('Profile'), .top:eq(0) a:contains('myTorrentz'), "+
+		".top:eq(0) a:contains('My')").length) return;
 	if (typeof __ !== "function" || typeof sessionStorage !== "object"
 		||(typeof GM_info !== "object" && typeof GM_getMetadata !== "function") // added for Scriptish
 		|| typeof GM_log !== "function"
@@ -188,7 +177,7 @@ var proxyFix = true;
 				"itunes|http://www.apple.com/search/?q=%s&section=ipoditunes",
 				"amazon|http://www.amazon.com/s/?field-keywords=%s",
 				"wikipedia|http://en.wikipedia.org/w/index.php?search=%s",
-				"pirate bay|https://thepiratebay.se/search/%s/0/7/0",
+				"the pirate bay|https://thepiratebay.am/search/%s/0/7/0",
 				"youtube|https://www.youtube.com/results?search_query=%s",
 				"google|https://www.google.com/search?q=%s"
 			];
@@ -229,7 +218,6 @@ var proxyFix = true;
 			opts.excludeFilter = "";
 			opts.useExcludeFilter = false;
 			opts.groupByCategory = false;
-			opts.forceHTTPS = false;
 			opts.removeAds = true;
 			opts.ajaxedSorting = true;
 			opts.searchHighlight = true;
@@ -511,25 +499,28 @@ var proxyFix = true;
 				// take.fm/movies/999/releases/9999/torrent/download?file=Title+of+torrent.torrent
 				directHref = slashSplit && slashSplit.length >= 7 ? "http://take.fm/movies/"+slashSplit[4]+
 					"/releases/"+slashSplit[6]+"/torrent/download?file="+titleEnc+".torrent" : null;
-			} else if (is("thepiratebay.sx/torrent/")
-				|| is("thepiratebay.ac/torrent/")
-				|| is("thepiratebay.pe/torrent/")
-				|| is("thepiratebay.org/torrent/")
-				|| is("thepiratebay.se/torrent/")
-				|| is("pirateproxy.net/torrent/")
-				|| is("pirateproxy.se/torrent/")
-				|| is("piratebayproxy.se/torrent/")
-				|| is("baymirror.com/torrent/")
-				|| is("piratereverse.info/torrent/")
-				|| is("piratebaymirror.me/torrent/")) {
-				// last checked 2014-02-04 (added .org)
-				// not at all complete but these should cover it
-				// thepiratebay.sx/torrent/9999999
+			// No more torrents hosted? Keeping it if they pop up again
+			/*} else if (is("pirateproxy.sx/torrent/")
+				|| is("thepiratebay.org/torrent/") // still used - redirects to .mn
+				|| is("thepiratebay.mn/torrent/")
+				|| is("thepiratebay.gd/torrent/")
+				|| is("thepiratebay.am/torrent/")
+				|| is("thepiratebay.gs/torrent/")
+				|| is("thepiratebay.la/torrent/")) {
+				// last checked 2015-05-21 (all swedish tld's are dead)
+				// thepiratebay.am/torrent/9999999
 				// torrents.thepiratebay.sx/9999999/Title+of+torrent.9999999.TPB.torrent
-				// 2014-04-18 remove fastpiratebay.eu proxy links and redo slashSplit
-				slashSplit = href.replace("fastpiratebay.eu/","").split("/");
+				// this sets .am as the default torrent file domain
+				slashSplit = href.replace(new RegExp([
+					"thepiratebay.se",
+					"pirateproxy.se",
+					"piratebayproxy.se",
+					"thepiratebay.se",
+					"fastpiratebay.eu",
+					"pirateproxy.sx"
+				].join("\\/|").replace(/\./g, "\\."), "g"), "thepiratebay.am/").split("/");
 				directHref = slashSplit && slashSplit.length >= 5 ? "http://torrents."+slashSplit[2]+
-					"/"+slashSplit[4]+"/"+titleEnc+"."+slashSplit[4]+".TPB.torrent" : null;
+					"/"+slashSplit[4]+"/"+titleEnc+"."+slashSplit[4]+".TPB.torrent" : null;*/
 			} else if (is("yts.re/movie/")) {
 				// last checked 2014-11-13
 				directHref = "https://yts.re/download/start/"+HASH+".torrent";
@@ -1059,22 +1050,6 @@ var proxyFix = true;
 		return p;
 	}
 	function genRadioSelects (p) {
-		/* Force HTTPS */
-		$("<input/>", {
-			"id": tzCl+"_forceHTTPS",
-			"attr": { "type": "checkbox", "value": "forceHTTPS" },
-			"checked": tz.usc.forceHTTPS
-		}).appendTo(
-		$("<label/>", {
-			"class": tzCl+"_boolean_opt",
-			"text": "Force HTTPS",
-			"attr": {
-				"for": tzCl+"_forceHTTPS",
-				"title": "This will redirect all pages for the domains that supports https: - Beware that if https: is "+
-					"unavailable, you have to try another mirror and turn this option off again. That`s why this option "+
-					"is turned off by default. Also note that this will not be applied if you`re on a proxy."
-			}
-		})).parent().appendTo(p);
 		/* Remove Ads */
 		$("<input/>", {
 			"id": tzCl+"_removeAds",
@@ -1863,7 +1838,7 @@ var proxyFix = true;
 	function removeAds (page, element, callback) {
 		var adRemovedClass = "removed_ad",
 			$tmpLink = $("<a/>", { href: "/" }),
-			$adIframes = els.$body.find("> iframe, iframe[src*='.filesoup.com']"),
+			$adIframes = els.$body.find("> iframe[src*='http://'], > iframe[src*='https://']"),
 			adClasses = [
 				".SPECIFICELEMENT",
 				".dontblockmebro",
@@ -3395,13 +3370,7 @@ var proxyFix = true;
 		// Re-use .usc
 		tz.usc = newSettings;
 		newSettings = null;
-		if (!proxyFix && tz.usc.forceHTTPS && tz.page.protocol === "http:"
-			&& !tz.page.domain.toLowerCase().match(/torrentz\.filesoup\.com|.*?proxy.*/)) {
-			// Redirect users with SSL forced, but not for proxies
-			return d.location.replace(d.location.href.replace(/^http:/, "https:"));
-		} else {
-			return callback();
-		}
+		return callback();
 	}
 
 	// build internal objects

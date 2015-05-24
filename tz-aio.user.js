@@ -383,7 +383,8 @@ if (!String.prototype.trim) {
 				// www.torrentdownloads.me/torrent/1652094016/ubuntu-10+10-desktop-i386+iso
 				// www.torrentdownloads.me/download/1652094016/ubuntu-10+10-desktop-i386+iso
 				directHref = href.replace(/(\.me\/)torrent(\/)/i,"$1download$2");
-			} else if (is("kat.ph/")
+			} else if (is("kat.cr/")
+				|| is("kat.ph/")
 				|| is("kickasstorrents.com/")
 				|| is("kickmirror.com/")
 				|| is("kickassunblock.net/")

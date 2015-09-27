@@ -1,5 +1,13 @@
 # Changelog
 
+### [v2.9.7](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.7) (2015-09-28)
+
+* Bumbed versions of all required scripts to their newest version.
+* Fixed domain for yts.to.
+* Removed links to monkeyguts.com.
+* Updated hosting domains and my personal contact information.
+	- The new update url is: [http://f.3r1k.se/js/tz-aio/tz-aio.meta.js](http://f.3r1k.se/js/tz-aio/tz-aio.meta.js)
+
 ### [v2.9.6](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.6) (2015-05-22)
 
 * Removed redundant option to force `https:` (`forceHTTPS`) - all domains are now forced as `https:`.
@@ -129,7 +137,7 @@
 
 ### [v2.7.5](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.7.5) (2014-10-22)
 
-* Changed the single [CC0 Universal 1.0 License](https://creativecommons.org/publicdomain/zero/1.0/) to dual license with the [MIT](http://elundmark.se/_files/js/tz-aio/license.txt) due to [conflict](https://github.com/elundmark/tz-aio-userscript/issues/7) with OSI - first couple of versions of this had an MIT license which i foolishly changed without thinking.
+* Changed the single [CC0 Universal 1.0 License](https://creativecommons.org/publicdomain/zero/1.0/) to dual license with the [MIT](http://f.3r1k.se/js/tz-aio/license.txt) due to [conflict](https://github.com/elundmark/tz-aio-userscript/issues/7) with OSI - first couple of versions of this had an MIT license which i foolishly changed without thinking.
 * Updated [license.txt](https://github.com/elundmark/tz-aio-userscript/blob/master/license.txt).
 * No other changes in the code.
 

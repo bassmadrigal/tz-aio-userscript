@@ -1,16 +1,16 @@
 // ==UserScript==
 // @name          Torrentz All-in-One
 // @description   Does everything you wish Torrentz.eu could do!
-// @version       2.9.6
-// @date          2015-05-22
+// @version       2.9.7
+// @date          2015-09-28
 // @author        elundmark
-// @contact       mail@elundmark.se
+// @contact       e@3r1k.se
 // @license       MIT; http://opensource.org/licenses/MIT
 // @license       CC0 1.0 Universal; http://creativecommons.org/publicdomain/zero/1.0/
-// @namespace     http://elundmark.se/code/tz-aio/
+// @namespace     http://3r1k.se/code/tz-aio/
 // @homepage      https://github.com/elundmark/tz-aio-userscript
-// @updateURL     http://elundmark.se/_files/js/tz-aio/tz-aio.meta.js
-// @downloadURL   http://elundmark.se/_files/js/tz-aio/tz-aio.user.js
+// @updateURL     http://f.3r1k.se/js/tz-aio/tz-aio.meta.js
+// @downloadURL   http://f.3r1k.se/js/tz-aio/tz-aio.user.js
 // @supportURL    https://github.com/elundmark/tz-aio-userscript/issues
 // @include       https://torrentz.eu/*
 // @include       https://www.torrentz.eu/*
@@ -42,11 +42,11 @@
 // @exclude       /^https://[^/]+/announcelist_.*/
 // @exclude       /^https://[^/]+/report_.*/
 // @exclude       /^https://[^/]+/comment_.*/
-// @require       https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
-// @require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js
-// @require       https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.3.3/spectrum.js
-// @resource css1 https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.3.3/spectrum.css
-// @resource css2 http://elundmark.se/_files/js/tz-aio/tz-aio-style-2.css?v=2-9-6-0
+// @require       https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js
+// @require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js
+// @require       https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/spectrum.min.js
+// @resource css1 https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/spectrum.min.css
+// @resource css2 http://f.3r1k.se/js/tz-aio/tz-aio-style-2.css?v=2-9-7-0
 // @icon          data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABNVBMVEUAAAAlSm8lSnAlS3AmS3AmTHImTHMmTXQnTnYnT3coTHEoUXkpUnsqVH4qVYArT3MrV4IsWYUtWoguXIovXo0vX44wYJAwYZIxVHcxYpQxY5UyZJYyZZcyZZgzZpk0Z5k1Z5k2aJo3WXs3aZo8bJ09Xn8+bp5CcaBFZYRHdaJJdqNNeaVPbYtQe6dSfahVf6lYdJFbhKxchK1hiK9iibBjfZhnjLJvh6Bylbhzlrh6m7x8kqh8nb2KnrGNqcWRrMeYqbuYssuas8ymtcSovdOqv9SvwtawxNezv8y2yNq5ytu+ydTD0eDJ0tvJ1uPP2ubT2uLZ4uvc4efe5u7f5+7i6fDl6e3p7vPq7fHq7/Ts8PXu8vbw8vTx9Pf19vj2+Pr4+fr4+fv6+/z8/Pz8/P39/f3///871JlNAAAAAXRSTlMAQObYZgAAAXFJREFUeNrt20dPw0AQBeBs6DX0niGhhN57Db333kJn//9PYOdgCQlYEEJ5Ab13mhnb8nfwYSRrQyGBxr3fQiMEEEAAAW8BkrZ8DJA0hgACCCCAAAIIIIAAAgjwAuy346cvBRdRgC0wIHYFBsxaLGAghQWMnlskoG/12f4c4H1CvIknuoYn59dPrAYBCO4igAAA4H0IIIAAAggggAACCPh3AG+MIQALWDalqI9w/NHNdguLoiBAf8qNzlryGgQD6Dh1k9verBrBAFr3dTJhKgUE2NTBgikTEGBR++3s4igIMK3tUV1+o2AAIw+uu+nMqRUMoOfaNU9j4SrBABLH2syZcsEA4ntab5gSAQHWtDyIFDSBAEmtLtpz6wUDmHpxxf1guFowgKE7LWZMhWAA3ZfBCoABtB3aYAWAAJp37OcrgNgv8guAFRusAACAbykl4I8A+PecAAIIIIAAAggggAACMhQAEPC0HQEEEJBJAPjx/1f83wbVqAm3rAAAAABJRU5ErkJggg==
 // @grant         GM_info
 // @grant         GM_addStyle
@@ -69,8 +69,8 @@
 	# Compatibility
 
 	Tested in Firefox v32+ (GreaseMonkey 2.2+, Scriptish v0.1.12),
-	Chrome v37 (Tampermonkey v3.8.52), on Lubuntu 14.04 LTS
-	Last checked 2014-09-05.
+	Chrome v37 (Tampermonkey v3.8.52),
+	and Opera v12.16 (Violent Monkey v1.6.3) on a pure Linux env.
 
 	# GreaseMonkey bugs
 
@@ -357,7 +357,7 @@ if (!String.prototype.trim) {
 				HASH = hash.toUpperCase(),
 				torCacheUrl = "http://torcache.net/torrent/"+HASH+".torrent?title="+titleEnc,
 				torRageUrl = "http://torrage.com/torrent/"+HASH+".torrent",
-				slashSplit = href.split("/"),
+				ds = href.split("/"),
 				is = linkMatches.call(undefined, { link: href }),
 				directHref,
 				directMatch;
@@ -400,18 +400,18 @@ if (!String.prototype.trim) {
 			// last checked 2014-02-04, should work but it doesn't (checked w curl and referer+useragent set)
 			// h33t.to/torrent/06197325
 			// h33t.to/get/06197325
-			// directHref = "http://h33t.to/get/"+slashSplit[4]+"/";
+			// directHref = "http://h33t.to/get/"+ds[4]+"/";
 			} else if (is("torlock.com/torrent")) {
 				// last checked 2013-08-30
 				// www.torlock.com/torrent/9999999/ubuntu-10+10-desktop-i386+iso.html
 				// www.torlock.com/tor/9999999.torrent
-				directHref = "http://www.torlock.com/tor/"+slashSplit[4]+".torrent";
+				directHref = "http://www.torlock.com/tor/"+ds[4]+".torrent";
 			} else if (is("newtorrents.info/torrent")) {
 				// last checked 2012-05-13
 				// www.newtorrents.info/torrent/99999/Ubuntu-10-10-DVD-i386.html?nopop=1
 				// www.newtorrents.info/down.php?id=99999
-				directHref = slashSplit && slashSplit.length >= 5 ? "http://"+slashSplit[2]+
-					"/down.php?id="+slashSplit[4] : null;
+				directHref = ds && ds.length >= 5 ? "http://"+ds[2]+
+					"/down.php?id="+ds[4] : null;
 			} else if (is("fenopy.eu/torrent")
 				|| is("fenopy.se/torrent")
 				|| is("fenopy.com/torrent")) {
@@ -446,8 +446,8 @@ if (!String.prototype.trim) {
 				// last checked 2012-05-13
 				// www.torrentfunk.com/torrent/9999999/ubuntu-10-10-dvd-i386.html
 				// www.torrentfunk.com/tor/9999999.torrent
-				directHref = slashSplit && slashSplit.length >= 5 ? "http://www.torrentfunk.com/tor/"+
-					slashSplit[4]+".torrent" : null;
+				directHref = ds && ds.length >= 5 ? "http://www.torrentfunk.com/tor/"+
+					ds[4]+".torrent" : null;
 			} else if (is("torrentstate.com/")) {
 				// last checked 2012-05-13
 				// Site was down so I don't know if this still works
@@ -459,37 +459,37 @@ if (!String.prototype.trim) {
 				// last checked 2013-11-14
 				// www.torrenthound.com/hash/bae62a9932ec69bc6687a6d399ccb9d89d00d455/torrent-info/ubuntu-10.10-dvd-i386.iso
 				// www.torrenthound.com/torrent/bae62a9932ec69bc6687a6d399ccb9d89d00d455
-				directHref = slashSplit[0]+slashSplit[1]+slashSplit[2]+"/torrent/"+hash;
+				directHref = ds[0]+ds[1]+ds[2]+"/torrent/"+hash;
 			} else if (is("vertor.com/torrents")) {
 				// last checked 2012-05-13
 				// www.vertor.com/torrents/2191958/Ubuntu-10-10-Maverick-Meerkat-%28Desktop-Intel-x86%29
 				// www.vertor.com/index.php?mod=download&id=2191958
-				directHref = slashSplit && slashSplit.length >= 5
-					? "http://www.vertor.com/index.php?mod=download&id="+slashSplit[4] : null;
+				directHref = ds && ds.length >= 5
+					? "http://www.vertor.com/index.php?mod=download&id="+ds[4] : null;
 			} else if (is("yourbittorrent.com/torrent/")) {
 				// last checked 2012-05-13
 				// www.yourbittorrent.com/torrent/212911/ubuntu-10-10-desktop-i386-iso.html
 				// www.yourbittorrent.com/down/212911.torrent
-				directHref = slashSplit && slashSplit.length >= 5 ? "http://yourbittorrent.com/down/"+
-					slashSplit[4]+".torrent" : null;
+				directHref = ds && ds.length >= 5 ? "http://yourbittorrent.com/down/"+
+					ds[4]+".torrent" : null;
 			} else if (is("torrents.net/torrent")) {
 				// last checked 2012-05-13
 				// www.torrents.net/torrent/9999999/Ubuntu-10-10-DVD-i386.html/
 				// www.torrents.net/down/9999999.torrent
-				directHref = slashSplit && slashSplit.length >= 5 ? "http://www.torrents.net/down/"+
-					slashSplit[4]+".torrent" : null;
+				directHref = ds && ds.length >= 5 ? "http://www.torrents.net/down/"+
+					ds[4]+".torrent" : null;
 			} else if (is("torrentbit.net/torrent")) {
 				// last checked 2012-05-13
 				// www.torrentbit.net/torrent/1903618/Ubuntu11.04%20Desktop%20i386%20ISO/
 				// www.torrentbit.net/get/1903618
-				directHref = slashSplit && slashSplit.length >= 5 ? "http://www.torrentbit.net/get/"+
-					slashSplit[4] : null;
+				directHref = ds && ds.length >= 5 ? "http://www.torrentbit.net/get/"+
+					ds[4] : null;
 			} else if (is("coda.fm/albums")) {
 				// last checked 2012-05-13
 				// coda.fm/albums/9999
 				// coda.fm/albums/9999/torrent/download?file=Title+of+torrent.torrent
-				directHref = slashSplit && slashSplit.length >= 5 ? "http://coda.fm/albums/"+
-					slashSplit[4]+"/torrent/download?file="+titleEnc+".torrent" : null;
+				directHref = ds && ds.length >= 5 ? "http://coda.fm/albums/"+
+					ds[4]+"/torrent/download?file="+titleEnc+".torrent" : null;
 			} else if (is("swesub.tv/torrents-details.php")) {
 				// swesub.tv/download.php?id=99999&name=BAE62A9932EC69BC6687A6D399CCB9D89D00D455.torrent
 				// swesub.tv/torrents-details.php?id=99999
@@ -498,8 +498,8 @@ if (!String.prototype.trim) {
 				// last checked 2012-05-13
 				// take.fm/movies/999/releases/9999
 				// take.fm/movies/999/releases/9999/torrent/download?file=Title+of+torrent.torrent
-				directHref = slashSplit && slashSplit.length >= 7 ? "http://take.fm/movies/"+slashSplit[4]+
-					"/releases/"+slashSplit[6]+"/torrent/download?file="+titleEnc+".torrent" : null;
+				directHref = ds && ds.length >= 7 ? "http://take.fm/movies/"+ds[4]+
+					"/releases/"+ds[6]+"/torrent/download?file="+titleEnc+".torrent" : null;
 			// No more torrents hosted? Keeping it if they pop up again
 			/*} else if (is("pirateproxy.sx/torrent/")
 				|| is("thepiratebay.org/torrent/") // still used - redirects to .mn
@@ -512,7 +512,7 @@ if (!String.prototype.trim) {
 				// thepiratebay.am/torrent/9999999
 				// torrents.thepiratebay.sx/9999999/Title+of+torrent.9999999.TPB.torrent
 				// this sets .am as the default torrent file domain
-				slashSplit = href.replace(new RegExp([
+				ds = href.replace(new RegExp([
 					"thepiratebay.se",
 					"pirateproxy.se",
 					"piratebayproxy.se",
@@ -520,16 +520,16 @@ if (!String.prototype.trim) {
 					"fastpiratebay.eu",
 					"pirateproxy.sx"
 				].join("\\/|").replace(/\./g, "\\."), "g"), "thepiratebay.am/").split("/");
-				directHref = slashSplit && slashSplit.length >= 5 ? "http://torrents."+slashSplit[2]+
-					"/"+slashSplit[4]+"/"+titleEnc+"."+slashSplit[4]+".TPB.torrent" : null;*/
-			} else if (is("yts.re/movie/")) {
+				directHref = ds && ds.length >= 5 ? "http://torrents."+ds[2]+
+					"/"+ds[4]+"/"+titleEnc+"."+ds[4]+".TPB.torrent" : null;*/
+			} else if (is("yts.re/movie/") || is("yts.to/movie/")) {
 				// last checked 2014-11-13
-				directHref = "https://yts.re/download/start/"+HASH+".torrent";
+				directHref = ds[0]+"//"+ds[2]+"/download/start/"+HASH+".torrent";
 			} else if (is("torrentcrazy.com/torrent/")) {
 				// last checked 2013-06-02
 				// www.torrentcrazy.com/torrent/8487590/title.of.torrent
 				// dl.torrentcrazy.com/bae62a9932ec69bc6687a6d399ccb9d89d00d455/Title+of+torrent.torrent
-				directHref = slashSplit && slashSplit.length >= 6 ? "http://dl.torrentcrazy.com/"+hash+
+				directHref = ds && ds.length >= 6 ? "http://dl.torrentcrazy.com/"+hash+
 					"/"+titleEnc+".torrent" : null;
 			} else if (is("rarbg.com/torrent")) {
 				// last checked 2013-07-27
@@ -537,17 +537,17 @@ if (!String.prototype.trim) {
 				// rarbg.com/torrent/abcde12
 				// rarbg.com/download.php?id=abcde12&f=Title+of+torrent[rarbg.com].torrent
 				if (href.match(cache.rarBgPatt)) {
-					directHref = slashSplit && slashSplit.length === 8 ? "http://rarbg.com/download.php?id="+
-						slashSplit[6]+"&f="+titleEnc+"%5Brarbg.com%5D.torrent" : null;
+					directHref = ds && ds.length === 8 ? "http://rarbg.com/download.php?id="+
+						ds[6]+"&f="+titleEnc+"%5Brarbg.com%5D.torrent" : null;
 				} else if (href.match(/rarbg\.com\/torrent\/[^\/]+\/?/i)) {
-					directHref = slashSplit && slashSplit.length === 5 ? "http://rarbg.com/download.php?id="+
-						slashSplit[4]+"&f="+titleEnc+"%5Brarbg.com%5D.torrent" : null;
+					directHref = ds && ds.length === 5 ? "http://rarbg.com/download.php?id="+
+						ds[4]+"&f="+titleEnc+"%5Brarbg.com%5D.torrent" : null;
 				}
 			} else if (is("nyaa.eu/?")) {
 				// last checked 2013-06-02
 				// www.nyaa.eu/?page=view&tid=999999
 				// www.nyaa.eu/?page=download&tid=999999
-				directHref = slashSplit && slashSplit.length >= 4
+				directHref = ds && ds.length >= 4
 					? href.replace(cache.nyaaPatt,"$1page=download") : null;
 			} else if (is("demonoid.pw")) {
 				// last checked 2014-12-04
@@ -559,7 +559,7 @@ if (!String.prototype.trim) {
 				// last checked 2014-12-19
 				// torrentproject.se/BAE62A9932EC69BC6687A6D399CCB9D89D00D455/
 				// torrentproject.se/torrent/BAE62A9932EC69BC6687A6D399CCB9D89D00D455.torrent
-				directHref = "torrentproject.se/torrent/"+HASH+".torrent";
+				directHref = ds[0]+"//"+ds[2]+"/torrent/"+HASH+".torrent";
 			} else if (is("torrage.com/torrent")) {
 				// torrage.com/torrent/BAE62A9932EC69BC6687A6D399CCB9D89D00D455.torrent
 				directHref = href;
@@ -1023,17 +1023,11 @@ if (!String.prototype.trim) {
 			"title": "Search for Torrentz All-in-One",
 			"text": "openuserjs.org"
 		}).appendTo(p);
-		makeTextNode(", ").appendTo(p);
+		makeTextNode(" and ").appendTo(p);
 		$("<a/>", {
 			"href": "https://greasyfork.org/en/scripts/search?q=torrentz",
 			"title": "Search for Torrentz All-in-One",
 			"text": "greasyfork.org"
-		}).appendTo(p);
-		makeTextNode(" and ").appendTo(p);
-		$("<a/>", {
-			"href": "https://monkeyguts.com/index.php?search=torrentz",
-			"title": "Search for Torrentz All-in-One",
-			"text": "monkeyguts.com"
 		}).appendTo(p);
 		makeTextNode(".").appendTo(p);
 		$("<br/>").appendTo(p);

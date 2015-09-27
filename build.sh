@@ -9,7 +9,7 @@ if [[ "$PWD" =~ TzAiOv2$ ]] && [[ -f "$PASSM" ]]
 		local SSHURL=$(bash "$PASSM" "binero-ssh-url")
 		rsync --verbose --progress --stats --times --recursive --perms --delete --copy-links \
 			--exclude ".*" --exclude "build.sh" --exclude "*sublime*" -e ssh "$PWD/" \
-			"$SSHUSER""@""$SSHURL"":""$SSHHOME""/elundmark.se/public_html/_files/js/tz-aio/"
+			"$SSHUSER""@""$SSHURL"":""$SSHHOME""/f.3r1k.se/public_html/js/tz-aio/"
 	}
 	sassCompile () {
 		local WORKDIR="$PWD"

@@ -1,5 +1,9 @@
 # Changelog
 
+### [v2.9.8](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.8) (2015-09-28)
+
+* Fixed the `@namespace` which I changed my mistake, and has caused some weird behaviour.
+
 ### [v2.9.7](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.7) (2015-09-28)
 
 * Bumbed versions of all required scripts to their newest version.

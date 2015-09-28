@@ -113,7 +113,7 @@ The following files are fetched externally by this userscript using `@require|re
 * `@require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js`
 * `@require       https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.3.3/spectrum.js`
 * `@resource css1 https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.3.3/spectrum.css`
-* `@resource css2 http://f.3r1k.se/js/tz-aio/tz-aio-style-2.css?v=2-9-7-0`
+* `@resource css2 http://f.3r1k.se/js/tz-aio/tz-aio-style-2.css?v=2-9-8-0`
 
 **\*)** Versions stated may have changed since this was written.
 

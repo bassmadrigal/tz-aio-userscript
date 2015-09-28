@@ -12,8 +12,7 @@ _This project is mainly maintained on [github](https://github.com/elundmark/tz-a
 2. Install the userscript itself from any of the following repositories:
 	* **[openuserjs.org](https://openuserjs.org/?q=torrentz)**
 	* **[greasyfork.org](https://greasyfork.org/en/scripts/search?q=torrentz)**
-	* **[monkeyguts.com](https://monkeyguts.com/index.php?search=torrentz)** _supplies secure updates_
-3. Disable _Require Secure Updates_ in your userscript engine to enable updates, if not installed through [monkeyguts.com](https://monkeyguts.com/code.php?id=194). However, doing this is less secure, so be careful.
+3. If you want automatic updates, disable _Require Secure Updates_ in your userscript engine.
 
 **(*)** Make sure you use version `0.1.12` or higher. Download the latest version [here](https://addons.mozilla.org/en-US/firefox/addon/scriptish/versions/).
 

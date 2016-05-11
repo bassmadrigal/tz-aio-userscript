@@ -1,4 +1,4 @@
-# No further updates until v3 has been finished (~ feb '16)
+# ***Abandoned, but forkable :/***
 
 - Please only report feature suggestions, as no existing bugs will be fixed for the current `2.x.x` version.
 

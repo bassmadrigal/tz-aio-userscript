@@ -1,6 +1,8 @@
 # ***Abandoned, but forkable :/***
 
-- Please only report feature suggestions, as no existing bugs will be fixed for the current `2.x.x` version.
+
+
+
 
 # Torrentz All-in-one Userscript
 

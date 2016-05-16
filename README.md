@@ -1,6 +1,6 @@
-# ***Abandoned, but forkable :/***
+# ~~Abandoned, but forkable :/~~
 
-
+(I forked it because the previously hosted css file is no longer available. I don't have any other experience with javascript, so I won't be adding any additional features. All credit to the script should go towards elundmark, although, I did put my name on the script to ensure he doesn't get bug reports for people using my version. --bassmadrigal)
 
 
 
@@ -16,15 +16,16 @@ _This project is mainly maintained on [github](https://github.com/elundmark/tz-a
 
 1. Install [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) or [Scriptish](https://addons.mozilla.org/en-US/firefox/addon/scriptish/)**(*)** for Firefox, [Tampermonkey](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo) for Google Chrome / Chromium, or [Violent Monkey](https://addons.opera.com/en/extensions/details/violent-monkey/) for Opera (should work but I don't check if it does very often).
 2. Install the userscript itself from any of the following repositories:
-	* **[openuserjs.org](https://openuserjs.org/?q=torrentz)**
-	* **[greasyfork.org](https://greasyfork.org/en/scripts/search?q=torrentz)**
+	* ~~**[openuserjs.org](https://openuserjs.org/?q=torrentz)**~~
+	* ~~**[greasyfork.org](https://greasyfork.org/en/scripts/search?q=torrentz)**~~
+	* **[github.org](https://github.com/bassmadrigal/tz-aio-userscript/raw/master/tz-aio-userscript.js)**
 3. If you want automatic updates, disable _Require Secure Updates_ in your userscript engine.
 
 **(*)** Make sure you use version `0.1.12` or higher. Download the latest version [here](https://addons.mozilla.org/en-US/firefox/addon/scriptish/versions/).
 
 _Tested on Firefox 32+ (GreaseMonkey/Scriptish) and Google Chrome 37+ with Tampermonkey. It does not work with Chrome's built-in userscript installer._
 
-## [Changelog](https://github.com/elundmark/tz-aio-userscript/blob/master/Changelog.md)
+## [Changelog](https://github.com/bassmadrigal/tz-aio-userscript/blob/master/Changelog.md)
 
 ## Features
 
@@ -103,25 +104,24 @@ __Note that not all of these work, some redirect to _torrentz.eu_, but it doesn'
 
 ## Using a proxy?
 
-If you can't use **torrentz-proxy.com** you can also try installing [this special version](https://github.com/elundmark/tz-aio-userscript/raw/master/tz-aio.proxy-fix.user.js), which runs on _every_ page, thus making it work again. But It's not *100%* guarateed, it depends on the proxy provider, and seeing there's like 100.000.000 of them I'm not gonna even try.
+If you can't use **torrentz-proxy.com** you can also try installing [this special version](https://github.com/bassmadrigal/tz-aio-userscript/raw/master/tz-aio.proxy-fix.user.js), which runs on _every_ page, thus making it work again. But It's not *100%* guarateed, it depends on the proxy provider, and seeing there's like 100.000.000 of them I'm not gonna even try.
 
 ## Help me, to help us
 
 See something wrong in the code, or maybe you wanna collaborate in keeping this script even more up to date? If so, I'm super stoked! Throw me an email, or contribute to the repo right away!
 
-Email and info: [https://github.com/elundmark](https://github.com/elundmark)
+Email and info: [https://github.com/bassmadrigal](https://github.com/bassmadrigal)
 
 ## Included plugins
 
 The following files are fetched externally by this userscript using `@require|resource`:
 
 * `@require       https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js`
-* `@require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js`
-* `@require       https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.3.3/spectrum.js`
-* `@resource css1 https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.3.3/spectrum.css`
-* `@resource css2 http://f.3r1k.se/js/tz-aio/tz-aio-style-2.css?v=2-9-8-0`
-
-**\*)** Versions stated may have changed since this was written.
+* `@require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js`
+* `@require       https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/spectrum.js`
+* `@resource css1 https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/spectrum.css`
+* ~~`@resource css2 http://f.3r1k.se/js/tz-aio/tz-aio-style-2.css?v=2-9-8-0`~~
+* `@resource css2 https://github.com/bassmadrigal/tz-aio-userscript/raw/master/tz-aio-style-2.css`
 
 ## Licences for included software
 

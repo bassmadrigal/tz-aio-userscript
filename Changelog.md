@@ -1,5 +1,10 @@
 # Changelog
 
+### [v2.9.9](https://github.com/bassmadrigal/tz-aio-userscript/releases/tag/2.9.9) (2016-05-15)
+
+* Forked repo due to removal of hosted css file which broke the script. Updated css file location to direct github link.
+* Made minor changes to README.md to match new information for people who happen to come across this forked version.
+
 ### [v2.9.8](https://github.com/elundmark/tz-aio-userscript/releases/tag/2.9.8) (2015-09-28)
 
 * Fixed the `@namespace` which I changed my mistake, and has caused some weird behaviour.

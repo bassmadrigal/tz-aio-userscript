@@ -1,17 +1,17 @@
 // ==UserScript==
 // @name          Torrentz All-in-One
 // @description   Does everything you wish Torrentz.eu could do!
-// @version       2.9.8
-// @date          2015-09-28
-// @author        elundmark
-// @contact       e@3r1k.se
+// @version       2.9.9
+// @date          2016-05-15
+// @author        bassmadrigal
+// @contact       jebrhasnen+SBo -at- gmail.com
 // @license       MIT; http://opensource.org/licenses/MIT
 // @license       CC0 1.0 Universal; http://creativecommons.org/publicdomain/zero/1.0/
 // @namespace     http://elundmark.se/code/tz-aio/
-// @homepage      https://github.com/elundmark/tz-aio-userscript
-// @updateURL     http://f.3r1k.se/js/tz-aio/tz-aio.meta.js
-// @downloadURL   http://f.3r1k.se/js/tz-aio/tz-aio.user.js
-// @supportURL    https://github.com/elundmark/tz-aio-userscript/issues
+// @homepage      https://github.com/bassmadrigal/tz-aio-userscript
+// @updateURL     https://github.com/bassmadrigal/tz-aio-userscript/raw/master/tz-aio.meta.js
+// @downloadURL   https://github.com/bassmadrigal/tz-aio-userscript/raw/master//tz-aio.user.js
+// @supportURL    https://github.com/bassmadrigal/tz-aio-userscript/issues
 // @include       https://torrentz.eu/*
 // @include       https://www.torrentz.eu/*
 // @include       https://torrentz.ph/*
@@ -46,7 +46,7 @@
 // @require       https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js
 // @require       https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/spectrum.min.js
 // @resource css1 https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/spectrum.min.css
-// @resource css2 http://f.3r1k.se/js/tz-aio/tz-aio-style-2.css?v=2-9-8-0
+// @resource css2 https://github.com/bassmadrigal/tz-aio-userscript/raw/master/tz-aio-style-2.css
 // @icon          data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAABNVBMVEUAAAAlSm8lSnAlS3AmS3AmTHImTHMmTXQnTnYnT3coTHEoUXkpUnsqVH4qVYArT3MrV4IsWYUtWoguXIovXo0vX44wYJAwYZIxVHcxYpQxY5UyZJYyZZcyZZgzZpk0Z5k1Z5k2aJo3WXs3aZo8bJ09Xn8+bp5CcaBFZYRHdaJJdqNNeaVPbYtQe6dSfahVf6lYdJFbhKxchK1hiK9iibBjfZhnjLJvh6Bylbhzlrh6m7x8kqh8nb2KnrGNqcWRrMeYqbuYssuas8ymtcSovdOqv9SvwtawxNezv8y2yNq5ytu+ydTD0eDJ0tvJ1uPP2ubT2uLZ4uvc4efe5u7f5+7i6fDl6e3p7vPq7fHq7/Ts8PXu8vbw8vTx9Pf19vj2+Pr4+fr4+fv6+/z8/Pz8/P39/f3///871JlNAAAAAXRSTlMAQObYZgAAAXFJREFUeNrt20dPw0AQBeBs6DX0niGhhN57Db333kJn//9PYOdgCQlYEEJ5Ab13mhnb8nfwYSRrQyGBxr3fQiMEEEAAAW8BkrZ8DJA0hgACCCCAAAIIIIAAAgjwAuy346cvBRdRgC0wIHYFBsxaLGAghQWMnlskoG/12f4c4H1CvIknuoYn59dPrAYBCO4igAAA4H0IIIAAAggggAACCPh3AG+MIQALWDalqI9w/NHNdguLoiBAf8qNzlryGgQD6Dh1k9verBrBAFr3dTJhKgUE2NTBgikTEGBR++3s4igIMK3tUV1+o2AAIw+uu+nMqRUMoOfaNU9j4SrBABLH2syZcsEA4ntab5gSAQHWtDyIFDSBAEmtLtpz6wUDmHpxxf1guFowgKE7LWZMhWAA3ZfBCoABtB3aYAWAAJp37OcrgNgv8guAFRusAACAbykl4I8A+PecAAIIIIAAAggggAACMhQAEPC0HQEEEJBJAPjx/1f83wbVqAm3rAAAAABJRU5ErkJggg==
 // @grant         GM_info
 // @grant         GM_addStyle

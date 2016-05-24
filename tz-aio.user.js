@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name          Torrentz All-in-One
 // @description   Does everything you wish Torrentz.eu could do!
-// @version       2.9.9
-// @date          2016-05-15
+// @version       2.9.10
+// @date          2016-05-23
 // @author        bassmadrigal
 // @contact       jebrhasnen+SBo -at- gmail.com
 // @license       MIT; http://opensource.org/licenses/MIT
@@ -10,7 +10,7 @@
 // @namespace     http://elundmark.se/code/tz-aio/
 // @homepage      https://github.com/bassmadrigal/tz-aio-userscript
 // @updateURL     https://github.com/bassmadrigal/tz-aio-userscript/raw/master/tz-aio.meta.js
-// @downloadURL   https://github.com/bassmadrigal/tz-aio-userscript/raw/master//tz-aio.user.js
+// @downloadURL   https://github.com/bassmadrigal/tz-aio-userscript/raw/master/tz-aio.user.js
 // @supportURL    https://github.com/bassmadrigal/tz-aio-userscript/issues
 // @include       https://torrentz.eu/*
 // @include       https://www.torrentz.eu/*

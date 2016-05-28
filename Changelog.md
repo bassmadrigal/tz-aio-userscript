@@ -1,5 +1,9 @@
 # Changelog
 
+### [v2.9.10](https://github.com/bassmadrigal/tz-aio-userscript/releases/tag/2.9.10) (2016-05-28)
+* Updated meta file to enable automatic updates. Thanks to andrewjmetzger.
+* Fix minor typo in script. Thanks to andrewjmetzger.
+
 ### [v2.9.9](https://github.com/bassmadrigal/tz-aio-userscript/releases/tag/2.9.9) (2016-05-15)
 
 * Forked repo due to removal of hosted css file which broke the script. Updated css file location to direct github link.

@@ -4,7 +4,7 @@
 // @version       2.9.11
 // @date          2016-05-31
 // @author        bassmadrigal
-// @orig_auth     elundmark
+// @orig_author   elundmark
 // @contact       jebrhasnen+SBo -at- gmail.com
 // @license       MIT; http://opensource.org/licenses/MIT
 // @license       CC0 1.0 Universal; http://creativecommons.org/publicdomain/zero/1.0/

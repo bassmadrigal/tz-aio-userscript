@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name          Torrentz All-in-One Proxy Fix
 // @description   Does everything you wish Torrentz.eu could do! (This script does not auto update!)
-// @version       2.9.9
-// @date          2016-05-15
+// @version       2.9.11
+// @date          2016-05-31
 // @author        bassmadrigal
+// @orig_author   elundmark
 // @contact       jebrhasnen+SBo -at- gmail.com
 // @license       MIT; http://opensource.org/licenses/MIT
 // @license       CC0 1.0 Universal; http://creativecommons.org/publicdomain/zero/1.0/
@@ -177,7 +178,7 @@ if (!String.prototype.trim) {
 				"itunes|http://www.apple.com/search/?q=%s&section=ipoditunes",
 				"amazon|http://www.amazon.com/s/?field-keywords=%s",
 				"wikipedia|http://en.wikipedia.org/w/index.php?search=%s",
-				"the pirate bay|https://thepiratebay.am/search/%s/0/7/0",
+				"the pirate bay|https://thepiratebay.se/search/%s/0/7/0",
 				"youtube|https://www.youtube.com/results?search_query=%s",
 				"google|https://www.google.com/search?q=%s"
 			];
@@ -1010,7 +1011,7 @@ if (!String.prototype.trim) {
 			"href": tz.env.link,
 			"text": "Torrentz All-in-One"
 		}).appendTo(p);
-		makeTextNode(" "+tz.env.version+" ("+tz.env.date+") — Keyboard shortcuts? Learn about them ").appendTo(p);
+		makeTextNode(" "+tz.env.version+" ("+tz.env.date+") Keyboard shortcuts? Learn about them ").appendTo(p);
 		$("<a/>", {
 			"href": "/help#"+tzCl+"_help",
 			"text": "here"
@@ -1019,15 +1020,9 @@ if (!String.prototype.trim) {
 		$("<br/>").appendTo(p);
 		makeTextNode("This userscript can be installed from ").appendTo(p);
 		$("<a/>", {
-			"href": "https://openuserjs.org/?q=torrentz",
-			"title": "Search for Torrentz All-in-One",
-			"text": "openuserjs.org"
-		}).appendTo(p);
-		makeTextNode(" and ").appendTo(p);
-		$("<a/>", {
-			"href": "https://greasyfork.org/en/scripts/search?q=torrentz",
-			"title": "Search for Torrentz All-in-One",
-			"text": "greasyfork.org"
+			"href": "https://github.com/bassmadrigal/tz-aio-userscript",
+			"title": "Torrentz AIO on GitHub",
+			"text": "github.com"
 		}).appendTo(p);
 		makeTextNode(".").appendTo(p);
 		$("<br/>").appendTo(p);
@@ -1932,7 +1927,8 @@ if (!String.prototype.trim) {
 					"href": __.unescape(getNoReferrerUrl(__.unescape(arr[1]).replace(/%s/g, encc(str)))),
 					"class": "search_link",
 					"attr": {
-						"rel": "noreferrer"
+						"rel": "noreferrer",
+						"target": "_blank"
 					}
 				})
 			);

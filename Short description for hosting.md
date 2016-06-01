@@ -1,14 +1,16 @@
 # Torrentz All-in-one Userscript
 
-#### Get magnetlinks for everything, removes ads, colorize / order / filter results, direct download links, and [tons more](https://github.com/elundmark/tz-aio-userscript#features).
+#### Get magnetlinks for everything, removes ads, colorize / order / filter results, direct download links, and [tons more](https://github.com/bassmadrigal/tz-aio-userscript#features).
+
+Originally developed by [elundmark](https://github.com/elundmark). Basic maintenance provided by [bassmadrigal](https://github.com/bassmadrigal).
 
 # Links
 
-* [Readme](https://github.com/elundmark/tz-aio-userscript/blob/master/README.md)
-* [Feature list](https://github.com/elundmark/tz-aio-userscript#features)
-* [Changelog](https://github.com/elundmark/tz-aio-userscript/blob/master/Changelog.md)
-* [Todo list](https://github.com/elundmark/tz-aio-userscript/blob/master/TODO.md)
-* [Report bugs](https://github.com/elundmark/tz-aio-userscript/issues)
+* [Readme](https://github.com/bassmadrigal/tz-aio-userscript/blob/master/README.md)
+* [Feature list](https://github.com/bassmadrigal/tz-aio-userscript#features)
+* [Changelog](https://github.com/bassmadrigal/tz-aio-userscript/blob/master/Changelog.md)
+* [Todo list](https://github.com/bassmadrigal/tz-aio-userscript/blob/master/TODO.md)
+* [Report bugs](https://github.com/bassmadrigal/tz-aio-userscript/issues)
 
 # Domains
 
@@ -28,14 +30,14 @@
 
 # More
 
-* For automatic updates, `Require Secure Updates` or an equivalent option must be disabled in your userscript-engine, since my server currently doesn't support SSL (`https:`).
-* There's an alternative [proxy-fix](https://github.com/elundmark/tz-aio-userscript/blob/master/tz-aio.proxy-fix.user.js) version of this script if you need it to apply to more domains.
+* Automatic updates should work fine unless github ends up complaining about having direct links.
+* There's an alternative [proxy-fix](https://github.com/bassmadrigal/tz-aio-userscript/blob/master/tz-aio.proxy-fix.user.js) version of this script if you need it to apply to more domains.
 * Screenshots
-    1. [tzaio\_settings.jpg](http://f.3r1k.se/js/tz-aio/screenshots/tzaio_settings.jpg)
-    2. [tzaio\_search\_results.jpg](http://f.3r1k.se/js/tz-aio/screenshots/tzaio_search_results.jpg)
-    3. [tzaio\_single\_page.jpg](http://f.3r1k.se/js/tz-aio/screenshots/tzaio_single_page.jpg)
-    4. [tzaio\_i\_page.jpg](http://f.3r1k.se/js/tz-aio/screenshots/tzaio_i_page.jpg)
-    5. [tzaio\_episode\_links.jpg](http://f.3r1k.se/js/tz-aio/screenshots/tzaio_episode_links.jpg)
+    1. [tzaio\_settings.jpg](https://raw.githubusercontent.com/bassmadrigal/tz-aio-userscript/master/screenshots/tzaio_settings.jpg)
+    2. [tzaio\_search\_results.jpg](https://raw.githubusercontent.com/bassmadrigal/tz-aio-userscript/master/screenshots/tzaio_search_results.jpg)
+    3. [tzaio\_single\_page.jpg](https://raw.githubusercontent.com/bassmadrigal/tz-aio-userscript/master/screenshots/tzaio_single_page.jpg)
+    4. [tzaio\_i\_page.jpg](https://raw.githubusercontent.com/bassmadrigal/tz-aio-userscript/master/screenshots/tzaio_i_page.jpg)
+    5. [tzaio\_episode\_links.jpg](https://raw.githubusercontent.com/bassmadrigal/tz-aio-userscript/master/screenshots/tzaio_episode_links.jpg)
 
 # Legality
 

@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name          Torrentz All-in-One
 // @description   Does everything you wish Torrentz.eu could do!
-// @version       2.9.10
-// @date          2016-05-23
+// @version       2.9.11
+// @date          2016-05-31
 // @author        bassmadrigal
+// @orig_auth     elundmark
 // @contact       jebrhasnen+SBo -at- gmail.com
 // @license       MIT; http://opensource.org/licenses/MIT
 // @license       CC0 1.0 Universal; http://creativecommons.org/publicdomain/zero/1.0/
@@ -1010,7 +1011,7 @@ if (!String.prototype.trim) {
 			"href": tz.env.link,
 			"text": "Torrentz All-in-One"
 		}).appendTo(p);
-		makeTextNode(" "+tz.env.version+" ("+tz.env.date+") — Keyboard shortcuts? Learn about them ").appendTo(p);
+		makeTextNode(" "+tz.env.version+" ("+tz.env.date+") Keyboard shortcuts? Learn about them ").appendTo(p);
 		$("<a/>", {
 			"href": "/help#"+tzCl+"_help",
 			"text": "here"
@@ -1019,15 +1020,9 @@ if (!String.prototype.trim) {
 		$("<br/>").appendTo(p);
 		makeTextNode("This userscript can be installed from ").appendTo(p);
 		$("<a/>", {
-			"href": "https://openuserjs.org/?q=torrentz",
-			"title": "Search for Torrentz All-in-One",
-			"text": "openuserjs.org"
-		}).appendTo(p);
-		makeTextNode(" and ").appendTo(p);
-		$("<a/>", {
-			"href": "https://greasyfork.org/en/scripts/search?q=torrentz",
-			"title": "Search for Torrentz All-in-One",
-			"text": "greasyfork.org"
+			"href": "https://github.com/bassmadrigal/tz-aio-userscript",
+			"title": "Torrentz AIO on GitHub",
+			"text": "github.com"
 		}).appendTo(p);
 		makeTextNode(".").appendTo(p);
 		$("<br/>").appendTo(p);

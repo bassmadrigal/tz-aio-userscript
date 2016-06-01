@@ -178,7 +178,7 @@ if (!String.prototype.trim) {
 				"itunes|http://www.apple.com/search/?q=%s&section=ipoditunes",
 				"amazon|http://www.amazon.com/s/?field-keywords=%s",
 				"wikipedia|http://en.wikipedia.org/w/index.php?search=%s",
-				"the pirate bay|https://thepiratebay.am/search/%s/0/7/0",
+				"the pirate bay|https://thepiratebay.se/search/%s/0/7/0",
 				"youtube|https://www.youtube.com/results?search_query=%s",
 				"google|https://www.google.com/search?q=%s"
 			];

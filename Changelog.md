@@ -1,5 +1,13 @@
 # Changelog
 
+### [v2.9.11](https://github.com/bassmadrigal/tz-aio-userscript/releases/tag/2.9.11) (2016-05-31)
+* Added original author's name (elundmark) to scripts to ensure proper attribution is provided.
+* Updated piratebay link in search tabs.
+* Made the search tab links (below the search bar) open in new tabs.
+* Updated `TODO.md` to show I'm only performing maintenance (when I can).
+* Updated `Short description for hosting.md` file.
+* Mirrored script changes to proxy script (in case people use it).
+
 ### [v2.9.10](https://github.com/bassmadrigal/tz-aio-userscript/releases/tag/2.9.10) (2016-05-28)
 * Updated meta file to enable automatic updates. Thanks to andrewjmetzger.
 * Fix minor typo in script. Thanks to andrewjmetzger.

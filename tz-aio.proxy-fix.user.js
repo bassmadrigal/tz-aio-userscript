@@ -178,7 +178,7 @@ if (!String.prototype.trim) {
 				"itunes|http://www.apple.com/search/?q=%s&section=ipoditunes",
 				"amazon|http://www.amazon.com/s/?field-keywords=%s",
 				"wikipedia|http://en.wikipedia.org/w/index.php?search=%s",
-				"the pirate bay|https://thepiratebay.se/search/%s/0/7/0",
+				"the pirate bay|https://thepiratebay.org/search/%s/0/7/0",
 				"youtube|https://www.youtube.com/results?search_query=%s",
 				"google|https://www.google.com/search?q=%s"
 			];
@@ -521,8 +521,9 @@ if (!String.prototype.trim) {
 					"piratebayproxy.se",
 					"thepiratebay.se",
 					"fastpiratebay.eu",
-					"pirateproxy.sx"
-				].join("\\/|").replace(/\./g, "\\."), "g"), "thepiratebay.am/").split("/");
+					"pirateproxy.sx",
+					"thepiratebay.am"
+				].join("\\/|").replace(/\./g, "\\."), "g"), "thepiratebay.org/").split("/");
 				directHref = ds && ds.length >= 5 ? "http://torrents."+ds[2]+
 					"/"+ds[4]+"/"+titleEnc+"."+ds[4]+".TPB.torrent" : null;*/
 			} else if (is("yts.re/movie/") || is("yts.to/movie/")) {

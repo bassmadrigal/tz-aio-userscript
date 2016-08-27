@@ -393,8 +393,10 @@ if (!String.prototype.trim) {
 				|| is("katproxy.com/")
 				|| is("katmirror.com/")
 				|| is("kickass.so/")
-				|| is("kickass.to/")) {
-				// last checked 2013-12-04
+				|| is("kickass.to/")
+				|| is("kat.am/")) {
+				// last checked 2016-08-27
+				// dunno what I'm doing, but added kat.am
 				// www.kickasstorrents.com/ubuntu-10-10-dvd-i386-iso-t4657293.html
 				// torcache.net/torrent/BAE62A9932EC69BC6687A6D399CCB9D89D00D455.torrent?title=[kat.ph]ubuntu-10-10-dvd-i386
 				directHref = torCacheUrl;

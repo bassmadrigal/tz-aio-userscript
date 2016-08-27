@@ -39,6 +39,7 @@
 // @include       https://www.bestdownload.eu/*
 // @include       https://torrentsmirror.com/*
 // @include       https://www.torrentsmirror.com/*
+// @include       https://torrentz2.eu
 // @exclude       /^https://[^/]+/feed(?:_[a-zA-Z]+)?\?.*/
 // @exclude       /^https://[^/]+/announcelist_.*/
 // @exclude       /^https://[^/]+/report_.*/

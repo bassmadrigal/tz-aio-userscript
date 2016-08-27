@@ -1,5 +1,13 @@
 # Changelog
 
+### [v2.9.12](https://github.com/bassmadrigal/tz-aio-userscript/releases/tag/2.9.12) (2016-08-27)
+* Addressed target blank vulernability with rel=noopener (see 
+[this](https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/) for more 
+details)
+* Updated inlcuded urls to add support for torrentz2.eu (RIP torrentz)
+* Added kat.am into kickass section of script
+* Changed piratebay links to thepiratebay.org
+
 ### [v2.9.11](https://github.com/bassmadrigal/tz-aio-userscript/releases/tag/2.9.11) (2016-05-31)
 * Added original author's name (elundmark) to scripts to ensure proper attribution is provided.
 * Updated piratebay link in search tabs.

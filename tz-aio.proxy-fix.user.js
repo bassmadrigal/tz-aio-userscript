@@ -1927,7 +1927,7 @@ if (!String.prototype.trim) {
 					"href": __.unescape(getNoReferrerUrl(__.unescape(arr[1]).replace(/%s/g, encc(str)))),
 					"class": "search_link",
 					"attr": {
-						"rel": "noreferrer",
+						"rel": "noreferrer noopener",
 						"target": "_blank"
 					}
 				})

@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name          Torrentz All-in-One
 // @description   Does everything you wish Torrentz.eu could do!
-// @version       2.9.12
-// @date          2016-08-27
+// @version       2.9.13
+// @date          2016-09-04
 // @author        bassmadrigal
 // @orig_author   elundmark
 // @contact       jebrhasnen+SBo -at- gmail.com
@@ -39,7 +39,8 @@
 // @include       https://www.bestdownload.eu/*
 // @include       https://torrentsmirror.com/*
 // @include       https://www.torrentsmirror.com/*
-// @include       https://torrentz2.eu
+// @include       https://torrentz2.eu/*
+// @include       https://torrentz.ht/*
 // @exclude       /^https://[^/]+/feed(?:_[a-zA-Z]+)?\?.*/
 // @exclude       /^https://[^/]+/announcelist_.*/
 // @exclude       /^https://[^/]+/report_.*/

@@ -1,5 +1,9 @@
 # Changelog
 
+#### [v2.9.13](https://github.com/bassmadrigal/tz-aio-userscript/releases/tag/2.9.13) (2016-09-04)
+* Fixed torrentz2.eu include line
+* Added torrentz.ht
+
 ### [v2.9.12](https://github.com/bassmadrigal/tz-aio-userscript/releases/tag/2.9.12) (2016-08-27)
 * Addressed target blank vulernability with rel=noopener (see 
 [this](https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/) for more 
